@@ -13,6 +13,9 @@ This gem was taken out of Rails but it is *not* Rails dependent.  The extraction
 | download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/silent_stream.svg)](https://github.com/pboling/silent_stream) |
 | version                 |  [![Version](https://img.shields.io/gem/v/silent_stream.svg)](https://rubygems.org/gems/silent_stream) |
 | continuous integration  |  [![Build Status](https://travis-ci.org/pboling/silent_stream.svg?branch=master)](https://travis-ci.org/pboling/silent_stream) |
+| test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/ced7e39984dd9c27c528/test_coverage)](https://codeclimate.com/github/pboling/silent_stream/test_coverage) |
+| maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/ced7e39984dd9c27c528/maintainability)](https://codeclimate.com/github/pboling/silent_stream/maintainability) |
+| dependencies            |  [![Depfu](https://badges.depfu.com/badges/6633827ecc1ad3b5dd749b4ac822347b/count.svg)](https://depfu.com/github/pboling/silent_stream?project_id=5828) |
 | code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/silent_stream/badges/users.svg)](https://www.codetriage.com/pboling/silent_stream) |
 | homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
 | documentation           |  [on RDoc.info][documentation] |
