@@ -4,7 +4,7 @@ SilentStream is an extraction of some parts of ActiveSupport's Kernel Reporting 
 
 Since July 2014 `silence_stream`, `silence_stderr`, `capture`, `silence`, and `quietly` have been deprecated because they are not thread safe.  See that discussion in the [PR where it all went down](https://github.com/rails/rails/pull/13392). I rely on them a lot in *single threaded* code, and so I plan to keep them alive.  With the exception of `silence`, which was just an alias of `capture`.
 
-This gem was taken out of Rails but it is *not* Rails dependent.  The extraction was total, and this is now a pure Ruby library, which can be used in any Ruby project without encumbrances.
+This gem was taken out of Rails but it is *not* Rails dependent.  The extraction was total (**even the tests**!), and this is now a pure Ruby library, which can be used in any Ruby project without encumbrances.
 
 | Project                 |  RequireBench |
 |------------------------ | ----------------------- |
