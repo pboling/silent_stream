@@ -39,7 +39,8 @@ authors = [
   spec.authors       = authors.map { |_gh, name| name }
   spec.email         = ['peter.boling@gmail.com']
 
-  spec.summary       = 'ActiveSupport Kernel Reporting Detritus with a few enhancements'
+  spec.summary       = "ActiveSupport's Stream Silencing - Without ActiveSupport"
+  spec.description   = 'ActiveSupport Kernel Reporting Detritus with a few enhancements'
   spec.homepage      = 'https://github.com/pboling/silent_stream'
 
   # Specify which files should be added to the gem when it is released.
