@@ -1,6 +1,6 @@
 # SilentStream
 
-SilentStream is an extraction of some parts of ActiveSupport's Kernel Reporting Core Extentions.
+SilentStream is an extraction of some parts of ActiveSupport's Kernel Reporting Core Extentions around silencing IO streams.
 
 Since July 2014 `silence_stream`, `silence_stderr`, `capture`, `silence`, and `quietly` have been deprecated because they are not thread safe.  See that discussion in the [PR where it all went down](https://github.com/rails/rails/pull/13392). I rely on them a lot in *single threaded* code, and so I plan to keep them alive.  With the exception of `silence`, which was just an alias of `capture`.
 
