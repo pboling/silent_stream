@@ -1,5 +1,7 @@
 require 'silent_stream/version'
 
+require 'tempfile'
+
 module SilentStream
   def self.included(base)
     base.send(:extend, Extracted)
