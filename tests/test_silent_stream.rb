@@ -1,8 +1,17 @@
+# frozen_string_literal: true
+
 require 'test/unit'
 require 'minitest'
+require 'minitest/reporters'
+require 'mocha/minitest'
+
+reporter_options = { color: true }
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
+MiniTest.autorun
+
 require 'simplecov'
 
-SimpleCov.start { add_filter '/tests/' }
+SimpleCov.start
 
 # This gem
 require 'silent_stream'
@@ -21,7 +30,7 @@ class SilentStream::TestCase < Minitest::Test
       yield
 
       stream_io.rewind
-      return captured_stream.read
+      captured_stream.read
     ensure
       captured_stream.close
       captured_stream.unlink
@@ -30,13 +39,35 @@ class SilentStream::TestCase < Minitest::Test
   end
 end
 
-class MyException < Exception; end
+class MyException < RuntimeError; end
 
 class MyClass
   include SilentStream
+  class << self
+    def quiet_log(switch, level, logger)
+      silence_all(switch, level, logger) do
+        logger.debug('some debug')
+        logger.error('some error')
+      end
+    end
+  end
 end
 
 class KernelTest < SilentStream::TestCase
+  def test_silence_all_switch_on
+    swicth = true
+    level = Logger::ERROR
+    logger = Logger.new(STDOUT)
+    assert_equal "", MyClass.capture(:stdout) { MyClass.quiet_log(swicth, level, logger) }
+  end
+
+  def test_silence_all_switch_off
+    swicth = false
+    level = Logger::ERROR
+    logger = Logger.new(STDOUT)
+    assert_match(/some debug\n.*some error\n/, MyClass.capture(:stdout) { MyClass.quiet_log(swicth, level, logger) })
+  end
+
   def test_silence_stream
     old_stream_position = STDOUT.tell
     MyClass.silence_stream(STDOUT) { STDOUT.puts 'hello world' }
@@ -50,11 +81,12 @@ class KernelTest < SilentStream::TestCase
     dup_stream = StringIO.new
     stream.stubs(:dup).returns(dup_stream)
     dup_stream.expects(:close)
-    MyClass.silence_stream(stream) { stream.puts 'hello world' }
+    MyClass.silence_stream(stream) { dup_stream.puts 'hello world' }
   end
 
   def test_quietly
-    old_stdout_position, old_stderr_position = STDOUT.tell, STDERR.tell
+    old_stdout_position = STDOUT.tell
+    old_stderr_position = STDERR.tell
     MyClass.quietly do
       puts 'see me, feel me'
       STDERR.puts 'touch me, heal me'

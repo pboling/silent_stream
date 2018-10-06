@@ -1,38 +1,40 @@
+# frozen_string_literal: true
+
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'silent_stream/version'
 
 Gem::Specification.new do |spec|
-authors = [
-  # Everyone who touched the files extracted from Rails:
-  ['jeremy',            'Jeremy Daer'],
-  ['dhh',               'David Heinemeier Hansson'],
-  ['pixeltrix',         'Andrew White'],
-  ['spastorino',        'Santiago Pastorino'],
-  ['sstephenson',       'Sam Stephenson'],
-  ['amatsuda',          'Akira Matsuda'],
-  ['Raphomet',          'Raphael Lee'],
-  ['rafaelfranca',      'Rafael França'],
-  ['mariovisic',        'Mario Visic'],
-  ['krekoten',          "Мар'ян Крекотень"],
-  ['lest',              'Sergey Nartimov'],
-  ['joshk',             'Josh Kalderimis'],
-  ['fxn',               'Xavier Noria'],
-  ['deivid-rodriguez',  'David Rodríguez'],
-  ['route',             'Dmitry Vorotilin'],
-  ['tenderlove',        'Aaron Patterson'],
-  ['guilleiguaran',     'Guillermo Iguaran'],
-  ['gazay',             'Alexey Gaziev'],
-  ['wycats',            'Yehuda Katz'],
-  ['tommeier',          'Tom Meier'],
-  ['lifo',              'Pratik Naik'],
-  ['charliesome',       'Charlie Somerville'],
-  ['atambo',            'Alex Tambellini'],
-  ['arthurnn',          'Arthur Nogueira Neves'],
-  ['anildigital',       'Anil Wadghule'],
-  # Author/Maintainer of this gem:
-  ['pboling',           'Peter Boling']
-]
+  authors = [
+    # Everyone who touched the files extracted from Rails:
+    ['jeremy',            'Jeremy Daer'],
+    ['dhh',               'David Heinemeier Hansson'],
+    ['pixeltrix',         'Andrew White'],
+    ['spastorino',        'Santiago Pastorino'],
+    ['sstephenson',       'Sam Stephenson'],
+    ['amatsuda',          'Akira Matsuda'],
+    ['Raphomet',          'Raphael Lee'],
+    ['rafaelfranca',      'Rafael França'],
+    ['mariovisic',        'Mario Visic'],
+    ['krekoten',          "Мар'ян Крекотень"],
+    ['lest',              'Sergey Nartimov'],
+    ['joshk',             'Josh Kalderimis'],
+    ['fxn',               'Xavier Noria'],
+    ['deivid-rodriguez',  'David Rodríguez'],
+    ['route',             'Dmitry Vorotilin'],
+    ['tenderlove',        'Aaron Patterson'],
+    ['guilleiguaran',     'Guillermo Iguaran'],
+    ['gazay',             'Alexey Gaziev'],
+    ['wycats',            'Yehuda Katz'],
+    ['tommeier',          'Tom Meier'],
+    ['lifo',              'Pratik Naik'],
+    ['charliesome',       'Charlie Somerville'],
+    ['atambo',            'Alex Tambellini'],
+    ['arthurnn',          'Arthur Nogueira Neves'],
+    ['anildigital',       'Anil Wadghule'],
+    # Author/Maintainer of this gem:
+    ['pboling',           'Peter Boling']
+  ]
 
   spec.name          = 'silent_stream'
   spec.version       = SilentStream::VERSION
@@ -58,8 +60,10 @@ authors = [
   else
     spec.add_development_dependency 'rake'
   end
-  spec.add_development_dependency 'test-unit', '~> 3.2'
-  spec.add_development_dependency 'minitest', '~> 5.10'
   spec.add_development_dependency 'bundler', '~> 1.16'
+  spec.add_development_dependency 'minitest', '~> 5.10'
+  spec.add_development_dependency 'minitest-reporters'
+  spec.add_development_dependency 'mocha'
   spec.add_development_dependency 'simplecov', '~> 0.16'
+  spec.add_development_dependency 'test-unit', '~> 3.2'
 end

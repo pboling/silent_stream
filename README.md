@@ -6,7 +6,7 @@ Since July 2014 `silence_stream`, `silence_stderr`, `capture`, `silence`, and `q
 
 This gem was taken out of Rails but it is *not* Rails dependent.  The extraction was total (**even the tests**!), and this is now a pure Ruby library, which can be used in any Ruby project without encumbrances.
 
-| Project                 |  RequireBench |
+| Project                 |  SilentStream |
 |------------------------ | ----------------------- |
 | gem name                |  [silent_stream](https://rubygems.org/gems/silent_stream) |
 | license                 |  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) |

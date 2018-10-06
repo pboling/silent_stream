@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require 'silent_stream/version'
 
 require 'tempfile'
+require 'logger'
 
 module SilentStream
   def self.included(base)
@@ -56,7 +59,7 @@ module SilentStream
     # This method is not thread-safe.
     def silence_stream(stream)
       old_stream = stream.dup
-      stream.reopen(RbConfig::CONFIG['host_os'] =~ /mswin|mingw/ ? 'NUL:' : '/dev/null')
+      stream.reopen(/mswin|mingw/.match?(RbConfig::CONFIG['host_os']) ? 'NUL:' : '/dev/null')
       stream.sync = true
       yield
     ensure
