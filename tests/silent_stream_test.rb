@@ -1,13 +1,10 @@
 require 'test/unit'
 require 'minitest'
-# require 'simplecov'
+require 'simplecov'
 
-# require 'coveralls'
-# Coveralls.wear!
-#
-# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-# SimpleCov.start { add_filter '/tests/' }
+SimpleCov.start { add_filter '/tests/' }
 
+# This gem
 require 'silent_stream'
 
 class SilentStream::TestCase < Minitest::Test
