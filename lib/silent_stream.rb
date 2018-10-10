@@ -59,7 +59,7 @@ module SilentStream
     # This method is not thread-safe.
     def silence_stream(stream)
       old_stream = stream.dup
-      stream.reopen(/mswin|mingw/.match?(RbConfig::CONFIG['host_os']) ? 'NUL:' : '/dev/null')
+      stream.reopen(windows_os_test ? 'NUL:' : '/dev/null')
       stream.sync = true
       yield
     ensure
@@ -114,6 +114,20 @@ module SilentStream
         silence_stream(STDERR) do
           yield
         end
+      end
+    end
+
+    private
+
+    WINDOWS_REGEXP = /mswin|mingw/
+    REGEXP_HAS_MATCH = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.4')
+    def windows_os_test
+      # When available, in Ruby 2.4+, we use Regexp#match? which does not update
+      #   the $~ global object and may be 3x faster than alternative match tests
+      if REGEXP_HAS_MATCH
+        WINDOWS_REGEXP.match?(RbConfig::CONFIG['host_os'])
+      else
+        WINDOWS_REGEXP =~ (RbConfig::CONFIG['host_os'])
       end
     end
   end
