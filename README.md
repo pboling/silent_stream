@@ -47,7 +47,7 @@ Or install it yourself as:
 
 ## Usage
 
-Four standard methods you may be familiar with from ActiveSupports previous implementation are provided:
+Four standard methods you may be familiar with from ActiveSupport's previous implementation are provided:
 
 ```
 silence_stderr
@@ -60,15 +60,18 @@ They are direct replicas, *except* not mixed into `Kernel` or `Object`, so in or
 
 ```
 class Bogosity
-  include SilentStream # allows use at instance or class level
+  include SilentStream::Extracted # allows use at instance level
+  include SilentStream::Extracted # allows use at class level
 end
 ```
 
 In addition there is a `silence_all` method that is a useful wrapper that can be easily instrumented (turned off and on) with an ENV variable switch.
 
+Including the `SilentStream` namespace fully gives access to this enhanced method, as well as the extracted methods above, and also makes everything available at the class and instance levels.
+
 ```ruby
 class Bogosity
-  include SilentStream # allows use at instance or class level
+  include SilentStream # allows use of any method at instance or class level
 
   def silent
     silence_all(true) do
