@@ -47,9 +47,7 @@ Or install it yourself as:
 
 ## Usage
 
-Usage:
-
-This gem provides the standard 4 methods you may be familiar with from ActiveSupports previous implementation:
+Four standard methods you may be familiar with from ActiveSupports previous implementation are provided:
 
 ```
 silence_stderr
