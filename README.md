@@ -49,6 +49,25 @@ Or install it yourself as:
 
 Usage:
 
+This gem provides the standard 4 methods you may be familiar with from ActiveSupports previous implementation:
+
+```
+silence_stderr
+silence_stream
+capture
+quietly
+```
+
+They are direct replicas, *except* not mixed into `Kernel` or `Object`, so in order to use them you must mix them into your classes or modules.
+
+```
+class Bogosity
+  include SilentStream # allows use at instance or class level
+end
+```
+
+In addition there is a `silence_all` method that is a useful wrapper that can be easily instrumented (turned off and on) with an ENV variable switch.
+
 ```ruby
 class Bogosity
   include SilentStream # allows use at instance or class level
@@ -69,7 +88,9 @@ class Bogosity
   end
 end
 ```
+
 And run
+
 ```
 >> Bogosity.new.silent # has no output
 => nil
