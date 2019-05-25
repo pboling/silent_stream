@@ -61,7 +61,9 @@ They are direct replicas, *except* not mixed into `Kernel` or `Object`, so in or
 ```
 class Bogosity
   include SilentStream::Extracted # allows use at instance level
-  include SilentStream::Extracted # allows use at class level
+  extend SilentStream::Extracted # allows use at class level
+  # or
+  include SilentStream # access everything, and add #silence_all method, see below
 end
 ```
 
