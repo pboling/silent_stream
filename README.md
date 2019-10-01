@@ -102,6 +102,29 @@ play that funky music
 => nil
 ```
 
+## Use in Specs / Tests
+
+Make the methods avaialble:
+```
+RSpec.configure do |conf|
+  conf.include SilentStream
+end
+```
+
+Then add a test on output:
+```
+it 'has output' do
+  output = capture(:stdout) { subject.request(:get, '/success') }
+  logs = [
+      'INFO -- request: GET https://api.example.com/success',
+      'INFO -- response: Status 200'
+  ]
+  expect(output).to include(*logs)
+end
+```
+
+See it in practice in the [specs for the oauth2 gem](https://github.com/oauth-xx/oauth2/blob/master/spec/oauth2/client_spec.rb#L193)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
