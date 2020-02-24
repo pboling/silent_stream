@@ -55,17 +55,17 @@ end
 
 class KernelTest < SilentStream::TestCase
   def test_silence_all_switch_on
-    swicth = true
+    switch = true
     level = Logger::ERROR
     logger = Logger.new(STDOUT)
-    assert_equal "", MyClass.capture(:stdout) { MyClass.quiet_log(swicth, level, logger) }
+    assert_equal "", MyClass.capture(:stdout) { MyClass.quiet_log(switch, level, logger) }
   end
 
   def test_silence_all_switch_off
-    swicth = false
+    switch = false
     level = Logger::ERROR
     logger = Logger.new(STDOUT)
-    assert_match(/some debug\n.*some error\n/, MyClass.capture(:stdout) { MyClass.quiet_log(swicth, level, logger) })
+    assert_match(/some debug\n.*some error\n/, MyClass.capture(:stdout) { MyClass.quiet_log(switch, level, logger) })
   end
 
   def test_silence_stream
