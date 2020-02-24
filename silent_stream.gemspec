@@ -60,10 +60,10 @@ Gem::Specification.new do |spec|
   else
     spec.add_development_dependency 'rake'
   end
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'minitest', '~> 5.10'
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'minitest', '>= 5.10'
   spec.add_development_dependency 'minitest-reporters'
   spec.add_development_dependency 'mocha'
-  spec.add_development_dependency 'simplecov', '~> 0.16'
-  spec.add_development_dependency 'test-unit', '~> 3.2'
+  spec.add_development_dependency 'simplecov', '>= 0.16'
+  spec.add_development_dependency 'test-unit', '>= 3.2'
 end
