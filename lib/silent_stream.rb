@@ -59,7 +59,7 @@ module SilentStream
     # This method is not thread-safe.
     def silence_stream(stream)
       old_stream = stream.dup
-      stream.reopen(windows_os_test ? 'NUL:' : '/dev/null')
+      stream.reopen(IO::NULL)
       stream.sync = true
       yield
     ensure
