@@ -23,27 +23,43 @@ module SilentStream
     #
     # This method is not thread-safe.
     def silence_all(switch = true, temporary_level = Logger::ERROR, logger = nil)
-      if !switch || ENV['NO_SILENCE'] == 'true'
+      if !switch || silent_stream_no_silence
         yield
       else
         begin
-          logger ||= defined?(Rails) ? Rails.logger : nil
-          logger && (old_logger_level = logger.level || true) && (logger.level = temporary_level)
+          logger ||= silent_stream_logger
+          old_logger_level = silent_stream_reset_logger_level(logger, temporary_level)
           # silence STDOUT (like puts)
           silence_stream(STDOUT) do
             yield
           end
         ensure
-          logger && (logger.level = old_logger_level)
+          silent_stream_reset_logger_level(logger, old_logger_level)
         end
       end
+    end
+
+    private
+
+    def silent_stream_no_silence
+      ENV['NO_SILENCE'] == 'true'
+    end
+
+    def silent_stream_logger
+      defined?(Rails) ? Rails.logger : nil
+    end
+
+    # returns previous logger's level
+    def silent_stream_eset_logger_level(logger, temporary_level)
+      logger && (old_logger_level = logger.level || true) && (logger.level = temporary_level)
+      old_logger_level
     end
   end
 
   # Extracted from:
   # https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/core_ext/kernel/reporting.rb
   module Extracted
-    NULL_DEVICE = defined?(IO::NULL) ? IO::NULL : Gem.win_platform? ? 'NUL:' : '/dev/null'
+    SILENT_STREAM_NULL_DEVICE = defined?(IO::NULL) ? IO::NULL : Gem.win_platform? ? 'NUL:' : '/dev/null'
 
     # This method is not thread-safe.
     def silence_stderr
@@ -62,7 +78,7 @@ module SilentStream
     def silence_stream(stream)
       old_stream = stream.dup
       begin
-        stream.reopen(NULL_DEVICE, 'a+')
+        stream.reopen(SILENT_STREAM_NULL_DEVICE, 'a+')
       rescue Exception => e
         stream.puts "[SilentStream] Unable to silence. #{e.class}: #{e.message}"
       end
@@ -125,15 +141,15 @@ module SilentStream
 
     private
 
-    WINDOWS_REGEXP = /mswin|mingw/
-    REGEXP_HAS_MATCH = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.4')
+    SILENT_STREAM_WINDOWS_REGEXP = /mswin|mingw/.freeze
+    SILENT_STREAM_REGEXP_HAS_MATCH = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.4')
     def windows_os_test
       # When available, in Ruby 2.4+, we use Regexp#match? which does not update
       #   the $~ global object and may be 3x faster than alternative match tests
-      if REGEXP_HAS_MATCH
-        WINDOWS_REGEXP.match?(RbConfig::CONFIG['host_os'])
+      if SILENT_STREAM_REGEXP_HAS_MATCH
+        SILENT_STREAM_WINDOWS_REGEXP.match?(RbConfig::CONFIG['host_os'])
       else
-        WINDOWS_REGEXP =~ (RbConfig::CONFIG['host_os'])
+        SILENT_STREAM_WINDOWS_REGEXP =~ (RbConfig::CONFIG['host_os'])
       end
     end
   end
