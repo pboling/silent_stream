@@ -43,6 +43,8 @@ module SilentStream
   # Extracted from:
   # https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/core_ext/kernel/reporting.rb
   module Extracted
+    NULL_DEVICE = defined?(IO::NULL) ? IO::NULL : Gem.win_platform? ? 'NUL:' : '/dev/null'
+
     # This method is not thread-safe.
     def silence_stderr
       silence_stream(STDERR) { yield }
@@ -59,7 +61,11 @@ module SilentStream
     # This method is not thread-safe.
     def silence_stream(stream)
       old_stream = stream.dup
-      stream.reopen(IO::NULL)
+      begin
+        stream.reopen(NULL_DEVICE, 'a+')
+      rescue Exception => e
+        stream.puts "[SilentStream] Unable to silence. #{e.class}: #{e.message}"
+      end
       stream.sync = true
       yield
     ensure
