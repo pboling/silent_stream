@@ -64,6 +64,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'minitest', '>= 5.10'
   spec.add_development_dependency 'minitest-reporters'
   spec.add_development_dependency 'mocha'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop-minitest'
   spec.add_development_dependency 'simplecov', '>= 0.16'
   spec.add_development_dependency 'test-unit', '>= 3.2'
 end
