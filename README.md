@@ -9,6 +9,7 @@ This gem was taken out of Rails but it is *not* Rails dependent.  The extraction
 | Project                 |  SilentStream |
 |------------------------ | ----------------------- |
 | gem name                |  [silent_stream](https://rubygems.org/gems/silent_stream) |
+| compatibility           |  Ruby 2.3, 2.4, 2.5, 2.6, 2.7 |
 | license                 |  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) |
 | download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/silent_stream.svg)](https://github.com/pboling/silent_stream) |
 | version                 |  [![Version](https://img.shields.io/gem/v/silent_stream.svg)](https://rubygems.org/gems/silent_stream) |
