@@ -50,7 +50,7 @@ module SilentStream
     end
 
     # returns previous logger's level
-    def silent_stream_eset_logger_level(logger, temporary_level)
+    def silent_stream_reset_logger_level(logger, temporary_level)
       logger && (old_logger_level = logger.level || true) && (logger.level = temporary_level)
       old_logger_level
     end
