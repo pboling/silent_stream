@@ -58,7 +58,7 @@ class KernelTest < SilentStream::TestCase
     switch = true
     level = Logger::ERROR
     logger = Logger.new(STDOUT)
-    assert_equal "", MyClass.capture(:stdout) { MyClass.quiet_log(switch, level, logger) }
+    assert_equal '', MyClass.capture(:stdout) { MyClass.quiet_log(switch, level, logger) }
   end
 
   def test_silence_all_switch_off
@@ -89,7 +89,7 @@ class KernelTest < SilentStream::TestCase
     old_stderr_position = STDERR.tell
     MyClass.quietly do
       puts 'see me, feel me'
-      STDERR.puts 'touch me, heal me'
+      warn 'touch me, heal me'
     end
     assert_equal old_stdout_position, STDOUT.tell
     assert_equal old_stderr_position, STDERR.tell
