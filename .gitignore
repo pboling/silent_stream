@@ -17,3 +17,5 @@
 
 *.gem
 /Gemfile.lock
+
+/gemfiles/*.lock
