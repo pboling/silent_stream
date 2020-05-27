@@ -20,7 +20,7 @@ This gem was taken out of Rails but it is *not* Rails dependent.  The extraction
 | code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/silent_stream/badges/users.svg)](https://www.codetriage.com/pboling/silent_stream) |
 | homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
 | documentation           |  [on RDoc.info][documentation] |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌍 🌎 🌏](https://about.me/peter.boling), [🍚](https://www.crowdrise.com/helprefugeeswithhopefortomorrowliberia/fundraiser/peterboling), [➕](https://plus.google.com/+PeterBoling/posts), [👼](https://angel.co/peter-boling), [🐛](https://www.topcoder.com/members/pboling/), [:shipit:](http://coderwall.com/pboling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo) |
+| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌍 🌎 🌏](https://about.me/peter.boling), [🍚](https://www.crowdrise.com/helprefugeeswithhopefortomorrowliberia/fundraiser/peterboling), [👼](https://angel.co/peter-boling), [🐛](https://www.topcoder.com/members/pboling/), [:shipit:](http://coderwall.com/pboling), [![🐦](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo) |
 
 ## NOTE
 
