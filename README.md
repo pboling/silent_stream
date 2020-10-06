@@ -126,6 +126,28 @@ end
 
 See it in practice in the [specs for the oauth2 gem](https://github.com/oauth-xx/oauth2/blob/master/spec/oauth2/client_spec.rb#L193)
 
+## Migrate from ActiveSupport::Testing::Stream, or remove ActiveSupport completely, in your ruby library!
+
+For most scenarios, simple. Change three lines.  Here's an example from a gem I just converted from ActiveSupport to SilentStream ([see commit](https://github.com/pboling/debug_logging/commit/d0cd109e1509084bbcf753be39f2173f0e2878a7))
+
+`gemspec` diff:
+```
+-spec.add_development_dependency 'activesupport', '>= 5'
++spec.add_development_dependency 'silent_stream', '>= 1'
+```
+
+`spec_helper.rb` diff:
+```
+-require 'active_support/testing/stream'
++require 'silent_stream'
+
+RSpec.configure do |config|
+-  config.include ActiveSupport::Testing::Stream
++  config.include SilentStream
+```
+
+Run spec suite to verify everything is good.  This gem is as close as can be to a drop-in replacement for Rails' `ActiveSupport::Testing::Stream`.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
