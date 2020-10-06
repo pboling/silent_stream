@@ -124,7 +124,7 @@ it 'has output' do
 end
 ```
 
-See it in practice in the [specs for the oauth2 gem](https://github.com/oauth-xx/oauth2/blob/master/spec/oauth2/client_spec.rb#L193)
+See it in practice in the specs for the [oauth2 gem](https://github.com/oauth-xx/oauth2/blob/master/spec/oauth2/client_spec.rb#L193) and the [debug_logging gem](https://github.com/pboling/debug_logging/blob/master/spec/debug_logging/instance_logger_spec.rb#L10)
 
 ## Migrate from ActiveSupport::Testing::Stream, or remove ActiveSupport completely, in your ruby library!
 
