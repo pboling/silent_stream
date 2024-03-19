@@ -3,11 +3,11 @@
 require 'test/unit'
 require 'minitest'
 require 'minitest/reporters'
+require "minitest/autorun"
 require 'mocha/minitest'
 
 reporter_options = { color: true }
 Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
-MiniTest.autorun
 
 require 'simplecov'
 
