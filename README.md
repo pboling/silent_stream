@@ -36,7 +36,7 @@ The reason for not keeping `silence` as it was in Rails 4, i.e. an alias of `cap
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'silent_stream'
+gem "silent_stream"
 ```
 
 And then execute:
@@ -80,14 +80,14 @@ class Bogosity
   def silent
     silence_all(true) do
       puts "play that funky music"
-      Rails.logger.info "git jiggy with it"
+      Rails.logger.info("git jiggy with it")
     end
   end
   class << self
     def noise
       silence_all(false) do
         puts "play that funky music"
-        Rails.logger.info "git jiggy with it"
+        Rails.logger.info("git jiggy with it")
       end
     end
   end
@@ -109,19 +109,19 @@ play that funky music
 Make the methods avaialble:
 ```
 RSpec.configure do |conf|
-  conf.include SilentStream
+  conf.include(SilentStream)
 end
 ```
 
 Then add a test on output:
 ```
-it 'has output' do
-  output = capture(:stdout) { subject.request(:get, '/success') }
+it "has output" do
+  output = capture(:stdout) { subject.request(:get, "/success") }
   logs = [
-      'INFO -- request: GET https://api.example.com/success',
-      'INFO -- response: Status 200'
+    "INFO -- request: GET https://api.example.com/success",
+    "INFO -- response: Status 200",
   ]
-  expect(output).to include(*logs)
+  expect(output).to(include(*logs))
 end
 ```
 
@@ -178,7 +178,7 @@ dependency on this gem using the [Pessimistic Version Constraint][pvc] with two 
 For example:
 
 ```ruby
-spec.add_dependency 'silent_stream', '~> 1.0'
+spec.add_dependency("silent_stream", "~> 1.0")
 ```
 
 ## License

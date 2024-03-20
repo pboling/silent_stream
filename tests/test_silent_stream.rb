@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require 'test/unit'
-require 'minitest'
-require 'minitest/reporters'
+require "test/unit"
+require "minitest"
+require "minitest/reporters"
 require "minitest/autorun"
-require 'mocha/minitest'
+require "mocha/minitest"
 
-reporter_options = { color: true }
-Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
+reporter_options = {color: true}
+Minitest::Reporters.use!([Minitest::Reporters::DefaultReporter.new(reporter_options)])
 
-require 'simplecov'
+require "simplecov"
 
 SimpleCov.start
 
 # This gem
-require 'silent_stream'
+require "silent_stream"
 
 class SilentStream::TestCase < Minitest::Test
   private
@@ -46,8 +46,8 @@ class MyClass
   class << self
     def quiet_log(switch, level, logger)
       silence_all(switch, level, logger) do
-        logger.debug('some debug')
-        logger.error('some error')
+        logger.debug("some debug")
+        logger.error("some error")
       end
     end
   end
@@ -58,7 +58,7 @@ class KernelTest < SilentStream::TestCase
     switch = true
     level = Logger::ERROR
     logger = Logger.new(STDOUT)
-    assert_equal '', MyClass.capture(:stdout) { MyClass.quiet_log(switch, level, logger) }
+    assert_equal("", MyClass.capture(:stdout) { MyClass.quiet_log(switch, level, logger) })
   end
 
   def test_silence_all_switch_off
@@ -70,37 +70,37 @@ class KernelTest < SilentStream::TestCase
 
   def test_silence_stream
     old_stream_position = STDOUT.tell
-    MyClass.silence_stream(STDOUT) { STDOUT.puts 'hello world' }
-    assert_equal old_stream_position, STDOUT.tell
+    MyClass.silence_stream(STDOUT) { STDOUT.puts "hello world" }
+    assert_equal(old_stream_position, STDOUT.tell)
   rescue Errno::ESPIPE
     # Skip if we can't stream.tell
   end
 
   def test_silence_stream_closes_file_descriptors
-    stream     = StringIO.new
+    stream = StringIO.new
     dup_stream = StringIO.new
     stream.stubs(:dup).returns(dup_stream)
     dup_stream.expects(:close)
-    MyClass.silence_stream(stream) { dup_stream.puts 'hello world' }
+    MyClass.silence_stream(stream) { dup_stream.puts "hello world" }
   end
 
   def test_quietly
     old_stdout_position = STDOUT.tell
     old_stderr_position = STDERR.tell
     MyClass.quietly do
-      puts 'see me, feel me'
-      warn 'touch me, heal me'
+      puts "see me, feel me"
+      warn("touch me, heal me")
     end
-    assert_equal old_stdout_position, STDOUT.tell
-    assert_equal old_stderr_position, STDERR.tell
+    assert_equal(old_stdout_position, STDOUT.tell)
+    assert_equal(old_stderr_position, STDERR.tell)
   rescue Errno::ESPIPE
     # Skip if we can't STDERR.tell
   end
 
   def test_capture
-    assert_equal 'STDERR', MyClass.capture(:stderr) { $stderr.print 'STDERR' }
-    assert_equal 'STDOUT', MyClass.capture(:stdout) { print 'STDOUT' }
-    assert_equal "STDERR\n", MyClass.capture(:stderr) { system('echo STDERR 1>&2') }
-    assert_equal "STDOUT\n", MyClass.capture(:stdout) { system('echo STDOUT') }
+    assert_equal("STDERR", MyClass.capture(:stderr) { $stderr.print("STDERR") })
+    assert_equal("STDOUT", MyClass.capture(:stdout) { print("STDOUT") })
+    assert_equal("STDERR\n", MyClass.capture(:stderr) { system("echo STDERR 1>&2") })
+    assert_equal("STDOUT\n", MyClass.capture(:stdout) { system("echo STDOUT") })
   end
 end

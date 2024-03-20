@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'silent_stream/version'
+require "silent_stream/version"
 
-require 'tempfile'
-require 'logger'
+require "tempfile"
+require "logger"
 
 module SilentStream
   def self.included(base)
@@ -22,7 +22,7 @@ module SilentStream
     #   so you can use it without changing code structure.
     #
     # This method is not thread-safe.
-    def silence_all(switch = true, temporary_level = Logger::ERROR, logger = nil)
+    def silence_all(switch = true, temporary_level = Logger::ERROR, logger = nil, &block)
       if !switch || silent_stream_no_silence
         yield
       else
@@ -30,9 +30,7 @@ module SilentStream
           logger ||= silent_stream_logger
           old_logger_level = silent_stream_reset_logger_level(logger, temporary_level)
           # silence STDOUT (like puts)
-          silence_stream(STDOUT) do
-            yield
-          end
+          silence_stream(STDOUT, &block)
         ensure
           silent_stream_reset_logger_level(logger, old_logger_level)
         end
@@ -42,11 +40,11 @@ module SilentStream
     private
 
     def silent_stream_no_silence
-      ENV['NO_SILENCE'] == 'true'
+      ENV["NO_SILENCE"] == "true"
     end
 
     def silent_stream_logger
-      defined?(Rails) && Rails.respond_to?(:logger) && Rails.logger ? Rails.logger : nil
+      (defined?(Rails) && Rails.respond_to?(:logger) && Rails.logger) ? Rails.logger : nil
     end
 
     # returns previous logger's level
@@ -59,11 +57,15 @@ module SilentStream
   # Extracted from:
   # https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/core_ext/kernel/reporting.rb
   module Extracted
-    SILENT_STREAM_NULL_DEVICE = defined?(IO::NULL) ? IO::NULL : Gem.win_platform? ? 'NUL:' : '/dev/null'
+    SILENT_STREAM_NULL_DEVICE = if defined?(IO::NULL)
+      IO::NULL
+    else
+      Gem.win_platform? ? "NUL:" : "/dev/null"
+    end
 
     # This method is not thread-safe.
-    def silence_stderr
-      silence_stream(STDERR) { yield }
+    def silence_stderr(&block)
+      silence_stream(STDERR, &block)
     end
 
     # Silences any stream for the duration of the block.
@@ -78,7 +80,7 @@ module SilentStream
     def silence_stream(stream)
       old_stream = stream.dup
       begin
-        stream.reopen(SILENT_STREAM_NULL_DEVICE, 'a+')
+        stream.reopen(SILENT_STREAM_NULL_DEVICE, "a+")
       rescue Exception => e
         stream.puts "[SilentStream] Unable to silence. #{e.class}: #{e.message}"
       end
@@ -131,25 +133,23 @@ module SilentStream
     #   quietly { system 'bundle install' }
     #
     # This method is not thread-safe.
-    def quietly
+    def quietly(&block)
       silence_stream(STDOUT) do
-        silence_stream(STDERR) do
-          yield
-        end
+        silence_stream(STDERR, &block)
       end
     end
 
     private
 
     SILENT_STREAM_WINDOWS_REGEXP = /mswin|mingw/.freeze
-    SILENT_STREAM_REGEXP_HAS_MATCH = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.4')
+    SILENT_STREAM_REGEXP_HAS_MATCH = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("2.4")
     def windows_os_test
       # When available, in Ruby 2.4+, we use Regexp#match? which does not update
       #   the $~ global object and may be 3x faster than alternative match tests
       if SILENT_STREAM_REGEXP_HAS_MATCH
-        SILENT_STREAM_WINDOWS_REGEXP.match?(RbConfig::CONFIG['host_os'])
+        SILENT_STREAM_WINDOWS_REGEXP.match?(RbConfig::CONFIG["host_os"])
       else
-        SILENT_STREAM_WINDOWS_REGEXP =~ (RbConfig::CONFIG['host_os'])
+        SILENT_STREAM_WINDOWS_REGEXP =~ (RbConfig::CONFIG["host_os"])
       end
     end
   end
