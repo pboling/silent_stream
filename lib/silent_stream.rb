@@ -46,7 +46,7 @@ module SilentStream
     end
 
     def silent_stream_logger
-      defined?(Rails) ? Rails.logger : nil
+      defined?(Rails) && Rails.respond_to?(:logger) && Rails.logger ? Rails.logger : nil
     end
 
     # returns previous logger's level
