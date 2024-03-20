@@ -6,21 +6,21 @@ Since July 2014 `silence_stream`, `silence_stderr`, `capture`, `silence`, and `q
 
 This gem was taken out of Rails but it is *not* Rails dependent.  The extraction was total (**even the tests**!), and this is now a pure Ruby library, which can be used in any Ruby project without encumbrances.  *This gem has no runtime dependencies*.
 
-| Project                 |  SilentStream |
-|------------------------ | ----------------------- |
-| gem name                |  [silent_stream](https://rubygems.org/gems/silent_stream) |
-| compatibility           |  Ruby 2.3, 2.4, 2.5, 2.6, 2.7 |
-| license                 |  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) |
-| download rank           |  [![Downloads Today](https://img.shields.io/gem/rd/silent_stream.svg)](https://github.com/pboling/silent_stream) |
-| version                 |  [![Version](https://img.shields.io/gem/v/silent_stream.svg)](https://rubygems.org/gems/silent_stream) |
-| continuous integration  |  [![Build Status](https://travis-ci.org/pboling/silent_stream.svg?branch=master)](https://travis-ci.org/pboling/silent_stream) |
-| test coverage           |  [![Test Coverage](https://api.codeclimate.com/v1/badges/ced7e39984dd9c27c528/test_coverage)](https://codeclimate.com/github/pboling/silent_stream/test_coverage) |
-| maintainability         |  [![Maintainability](https://api.codeclimate.com/v1/badges/ced7e39984dd9c27c528/maintainability)](https://codeclimate.com/github/pboling/silent_stream/maintainability) |
-| dependencies            |  [![Depfu](https://badges.depfu.com/badges/6633827ecc1ad3b5dd749b4ac822347b/count.svg)](https://depfu.com/github/pboling/silent_stream?project_id=5828) |
-| code triage             |  [![Open Source Helpers](https://www.codetriage.com/pboling/silent_stream/badges/users.svg)](https://www.codetriage.com/pboling/silent_stream) |
-| homepage                |  [on Github.com][homepage], [on Railsbling.com][blogpage] |
-| documentation           |  [on RDoc.info][documentation] |
-| Spread ~♡ⓛⓞⓥⓔ♡~      |  [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [:shipit:](http://coderwall.com/pboling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo), [🌹](https://nationalprogressiveparty.org) |
+| Project                | SilentStream                                                                                                                                                                                      |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gem name               | [silent_stream](https://rubygems.org/gems/silent_stream)                                                                                                                                          |
+| compatibility          | Ruby 2.3, 2.4, 2.5, 2.6, 2.7, 3.0, 3.1, 3.2, 3.3                                                                                                                                                  |
+| license                | [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)                                                                                        |
+| download rank          | [![Downloads Today](https://img.shields.io/gem/rd/silent_stream.svg)](https://github.com/pboling/silent_stream)                                                                                   |
+| version                | [![Version](https://img.shields.io/gem/v/silent_stream.svg)](https://rubygems.org/gems/silent_stream)                                                                                             |
+| continuous integration | [![Build Status](https://travis-ci.org/pboling/silent_stream.svg?branch=master)](https://travis-ci.org/pboling/silent_stream)                                                                     |
+| test coverage          | [![Test Coverage](https://api.codeclimate.com/v1/badges/ced7e39984dd9c27c528/test_coverage)](https://codeclimate.com/github/pboling/silent_stream/test_coverage)                                  |
+| maintainability        | [![Maintainability](https://api.codeclimate.com/v1/badges/ced7e39984dd9c27c528/maintainability)](https://codeclimate.com/github/pboling/silent_stream/maintainability)                            |
+| dependencies           | [![Depfu](https://badges.depfu.com/badges/6633827ecc1ad3b5dd749b4ac822347b/count.svg)](https://depfu.com/github/pboling/silent_stream?project_id=5828)                                            |
+| code triage            | [![Open Source Helpers](https://www.codetriage.com/pboling/silent_stream/badges/users.svg)](https://www.codetriage.com/pboling/silent_stream)                                                     |
+| homepage               | [on Github.com][homepage], [on Railsbling.com][blogpage]                                                                                                                                          |
+| documentation          | [on RDoc.info][documentation]                                                                                                                                                                     |
+| Spread ~♡ⓛⓞⓥⓔ♡~        | [🌏](https://about.me/peter.boling), [👼](https://angel.co/peter-boling), [![Tweet Peter](https://img.shields.io/twitter/follow/galtzo.svg?style=social&label=Follow)](http://twitter.com/galtzo) |
 
 
 ## NOTE
@@ -183,7 +183,7 @@ spec.add_dependency 'silent_stream', '~> 1.0'
 
 ## License
 
-* Copyright (c) 2018 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
+* Copyright (c) 2018, 2024 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 

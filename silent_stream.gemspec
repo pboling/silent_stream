@@ -40,10 +40,20 @@ Gem::Specification.new do |spec|
   spec.version       = SilentStream::VERSION
   spec.authors       = authors.map { |_gh, name| name }
   spec.email         = ['peter.boling@gmail.com']
+  spec.required_ruby_version = ">= 2.3"
 
   spec.summary       = "ActiveSupport's Stream Silencing - Without ActiveSupport"
   spec.description   = 'ActiveSupport Kernel Reporting Detritus with a few enhancements'
-  spec.homepage      = 'https://github.com/pboling/silent_stream'
+  spec.homepage = "https://github.com/pboling/#{spec.name}"
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
+  # spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
+  spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
+  spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/#{spec.name}/#{spec.version}"
+  spec.metadata["wiki_uri"] = "#{spec.homepage}/wiki"
+  spec.metadata["funding_uri"] = "https://liberapay.com/pboling"
+  spec.metadata["news_uri"] = "https://www.railsbling.com/tags/#{spec.name}"
+  spec.metadata["rubygems_mfa_required"] = "true"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -64,4 +74,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '>= 0.16'
   spec.add_development_dependency 'test-unit', '>= 3.2'
   spec.add_development_dependency 'wwtd'
+
+  # Linting
+  spec.add_dependency("rubocop-gradual", ">= 0.3.4")
+  spec.add_dependency("rubocop-lts", "~> 10.1", ">= 10.1.1") # Lint & Style Support for Ruby 2.3+
+  spec.add_dependency("rubocop-rspec", "~> 2.26", ">= 2.26.1")
+  spec.add_dependency("standard", "~> 1.33")
 end
