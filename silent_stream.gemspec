@@ -76,8 +76,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("wwtd")
 
   # Linting
-  spec.add_dependency("rubocop-gradual", ">= 0.3.4")
-  spec.add_dependency("rubocop-lts", "~> 10.1", ">= 10.1.1") # Lint & Style Support for Ruby 2.3+
-  spec.add_dependency("rubocop-rspec", "~> 2.26", ">= 2.26.1")
-  spec.add_dependency("standard", "~> 1.33")
+  spec.add_development_dependency("rubocop-gradual", ">= 0.3.4")
+  spec.add_development_dependency("rubocop-lts", "~> 10.1", ">= 10.1.1") # Lint & Style Support for Ruby 2.3+
+  spec.add_development_dependency("rubocop-rspec", "~> 2.26", ">= 2.26.1")
+  spec.add_development_dependency("standard", "~> 1.33")
 end
