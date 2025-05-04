@@ -69,6 +69,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.license = "MIT"
 
+  # tempfile is still a standard library gem, and the released versions only support back to Ruby 2.5
+  # spec.add_dependency("tempfile", "~> 0.3.1")
+  spec.add_dependency("logger", ">= 1.4.4") # Ruby >= 2.3, newer minor versions require Ruby >= 2.5
+
+  # Development dependencies
   spec.add_development_dependency("appraisal")
   spec.add_development_dependency("bundler")
   spec.add_development_dependency("minitest", ">= 5.22")
