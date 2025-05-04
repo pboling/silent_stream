@@ -114,7 +114,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("rake")
   spec.add_development_dependency("simplecov", ">= 0.16")
   spec.add_development_dependency("test-unit", ">= 3.2")
-  spec.add_development_dependency("wwtd")
 
   # Linting
   spec.add_development_dependency("rubocop-gradual", ">= 0.3.4")
