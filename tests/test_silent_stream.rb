@@ -9,9 +9,14 @@ require "mocha/minitest"
 reporter_options = {color: true}
 Minitest::Reporters.use!([Minitest::Reporters::DefaultReporter.new(reporter_options)])
 
-require "kettle-soup-cover"
+begin
+  # In CI coverage gems are not available except on the coverage workflow
+  require "kettle-soup-cover"
 
-require "simplecov" if Kettle::Soup::Cover::DO_COV
+  require "simplecov" if defined?(Kettle) && Kettle::Soup::Cover::DO_COV
+rescue LoadError
+  nil
+end
 
 # This gem
 require "silent_stream"
