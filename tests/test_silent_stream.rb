@@ -9,9 +9,9 @@ require "mocha/minitest"
 reporter_options = {color: true}
 Minitest::Reporters.use!([Minitest::Reporters::DefaultReporter.new(reporter_options)])
 
-require "simplecov"
+require "kettle-soup-cover"
 
-SimpleCov.start
+require "simplecov" if Kettle::Soup::Cover::DO_COV
 
 # This gem
 require "silent_stream"

@@ -21,6 +21,22 @@ Simply follow these instructions:
 6. Make sure to add tests for it. This is important, so it doesn't break in a future release.
 7. Create new Pull Request.
 
+## Appraisals
+
+From time to time the appraisal gemfiles in `gemfiles/` will need to be updated.
+They are created and updated with the commands:
+
+NOTE: We run on a [fork][🚎appraisal-fork] of Appraisal.
+
+Please upvote the PR for `eval_gemfile` [support][🚎appraisal-eval-gemfile-pr]
+
+```shell
+BUNDLE_GEMFILE=Appraisal.root.gemfile bundle
+BUNDLE_GEMFILE=Appraisal.root.gemfile bundle exec appraisal update
+```
+
+When adding an appraisal to CI check the [runner tool cache][🏃‍♂️runner-tool-cache] to see which runner to use.
+
 ## The Reek List
 
 Take a look at the `reek` list which is the file called `REEK` and find something to improve.
@@ -113,3 +129,8 @@ NOTE: To build without signing the gem you must set `SKIP_GEM_SIGNING` to some v
 [💎stone_checksums]: https://github.com/pboling/stone_checksums
 [📗keep-changelog]: https://keepachangelog.com/en/1.0.0/
 [📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
+[📌semver-breaking]: https://github.com/semver/semver/issues/716#issuecomment-869336139
+[📌major-versions-not-sacred]: https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html
+[🚎appraisal-eval-gemfile-pr]: https://github.com/thoughtbot/appraisal/pull/248
+[🚎appraisal-fork]: https://github.com/pboling/appraisal/tree/galtzo
+[🏃‍♂️runner-tool-cache]: https://github.com/ruby/ruby-builder/releases/tag/toolcache

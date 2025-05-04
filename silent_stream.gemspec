@@ -105,19 +105,20 @@ Gem::Specification.new do |spec|
   # spec.add_dependency("tempfile", "~> 0.3.1")
   spec.add_dependency("logger", ">= 1.4.4") # Ruby >= 2.3, newer minor versions require Ruby >= 2.5
 
+  # Utilities
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.7")
+
   # Development dependencies
-  spec.add_development_dependency("appraisal")
-  spec.add_development_dependency("bundler")
   spec.add_development_dependency("minitest", ">= 5.22")
   spec.add_development_dependency("minitest-reporters")
   spec.add_development_dependency("mocha")
-  spec.add_development_dependency("rake")
-  spec.add_development_dependency("simplecov", ">= 0.16")
+  spec.add_development_dependency("rake", "~> 13.0")                    # ruby >= 2.2
+  spec.add_development_dependency("stone_checksums", "~> 1.0")          # ruby >= 2.2
   spec.add_development_dependency("test-unit", ">= 3.2")
 
-  # Linting
-  spec.add_development_dependency("rubocop-gradual", ">= 0.3.4")
-  spec.add_development_dependency("rubocop-lts", "~> 10.1", ">= 10.1.1") # Lint & Style Support for Ruby 2.3+
-  spec.add_development_dependency("rubocop-rspec", "~> 2.26", ">= 2.26.1")
-  spec.add_development_dependency("standard", "~> 1.33")
+  # Linting - rubocop-lts v10 is a rubocop wrapper for Ruby >= 2.3,
+  #   and should only be bumped when dropping old Ruby support
+  # NOTE: it can only be installed on, and run on Ruby >= 2.7, so we add the dependency in the Gemfile.
+  # see: https://rubocop-lts.gitlab.io
+  # spec.add_development_dependency 'rubocop-lts', ['~> 10.0']
 end
