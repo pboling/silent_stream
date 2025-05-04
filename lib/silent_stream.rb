@@ -149,7 +149,7 @@ module SilentStream
       if SILENT_STREAM_REGEXP_HAS_MATCH
         SILENT_STREAM_WINDOWS_REGEXP.match?(RbConfig::CONFIG["host_os"])
       else
-        SILENT_STREAM_WINDOWS_REGEXP =~ (RbConfig::CONFIG["host_os"])
+        SILENT_STREAM_WINDOWS_REGEXP =~ RbConfig::CONFIG["host_os"]
       end
     end
   end

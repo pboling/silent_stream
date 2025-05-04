@@ -76,7 +76,7 @@ Gem::Specification.new do |spec|
   # Specify which files should be added to the gem when it is released.
   spec.files = Dir[
     # Splats (alphabetical)
-    "lib/**/*.rb",
+    "lib/**/*.rb"
   ]
   # Automatically included with gem package, no need to list again in files.
   spec.extra_rdoc_files = Dir[
