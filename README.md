@@ -181,13 +181,24 @@ For example:
 spec.add_dependency("silent_stream", "~> 1.0")
 ```
 
-## License
+## 📄 License
 
-* Copyright (c) 2018, 2024 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
+The gem is available as open source under the terms of
+the [MIT License][📄license] [![License: MIT][📄license-img]][📄license-ref].
+See [LICENSE.txt][📄license] for the official [Copyright Notice][📄copyright-notice-explainer].
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+### © Copyright
 
-[license]: LICENSE
+<p>
+  Copyright (c) 2018 - 2020, 2024 - 2025 Peter H. Boling,
+  <a href="https://railsbling.com">
+    RailsBling.com
+    <picture>
+      <img alt="Rails Bling" height="20" src="https://railsbling.com/images/logos/RailsBling-TrainLogo.svg" />
+    </picture>
+  </a>
+</p>
+
 [semver]: http://semver.org/
 [pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
 [railsbling]: http://www.railsbling.com
@@ -195,3 +206,8 @@ spec.add_dependency("silent_stream", "~> 1.0")
 [documentation]: http://rdoc.info/github/pboling/silent_stream/frames
 [homepage]: https://github.com/pboling/silent_stream/
 [blogpage]: http://www.railsbling.com/tags/silent_stream/
+
+[📄copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year
+[📄license]: LICENSE.txt
+[📄license-ref]: https://opensource.org/licenses/MIT
+[📄license-img]: https://img.shields.io/badge/License-MIT-green.svg

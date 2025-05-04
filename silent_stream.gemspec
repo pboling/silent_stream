@@ -40,7 +40,6 @@ Gem::Specification.new do |spec|
   spec.version = SilentStream::VERSION
   spec.authors = authors.map { |_gh, name| name }
   spec.email = ["peter.boling@gmail.com"]
-  spec.required_ruby_version = ">= 2.3"
 
   # Linux distros may package ruby gems differently,
   #   and securely certify them independently via alternate package management systems.
@@ -61,6 +60,9 @@ Gem::Specification.new do |spec|
   spec.summary = "ActiveSupport's Stream Silencing - Without ActiveSupport"
   spec.description = "ActiveSupport Kernel Reporting Detritus with a few enhancements"
   spec.homepage = "https://github.com/pboling/#{spec.name}"
+  spec.license = "MIT"
+  spec.required_ruby_version = ">= 2.3"
+
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
@@ -73,17 +75,16 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   spec.files = Dir[
-    "lib/**/*.rb",
-    "CODE_OF_CONDUCT.md",
-    "CONTRIBUTING.md",
-    "LICENSE",
-    "README.md",
-    "SECURITY.md"
+  "lib/**/*.rb",
+  "CODE_OF_CONDUCT.md",
+  "CONTRIBUTING.md",
+  "LICENSE",
+  "README.md",
+  "SECURITY.md"
   ]
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.license = "MIT"
 
   # tempfile is still a standard library gem, and the released versions only support back to Ruby 2.5
   # spec.add_dependency("tempfile", "~> 0.3.1")
