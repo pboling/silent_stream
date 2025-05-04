@@ -75,16 +75,31 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   spec.files = Dir[
-  "lib/**/*.rb",
-  "CODE_OF_CONDUCT.md",
-  "CONTRIBUTING.md",
-  "LICENSE",
-  "README.md",
-  "SECURITY.md"
+    # Splats (alphabetical)
+    "lib/**/*.rb",
   ]
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  # Automatically included with gem package, no need to list again in files.
+  spec.extra_rdoc_files = Dir[
+    # Files (alphabetical)
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "LICENSE.txt",
+    "README.md",
+    "SECURITY.md",
+  ]
+  spec.rdoc_options += [
+    "--title",
+    "#{spec.name} - #{spec.summary}",
+    "--main",
+    "README.md",
+    "--line-numbers",
+    "--inline-source",
+    "--quiet",
+  ]
   spec.require_paths = ["lib"]
+  spec.bindir = "exe"
+  spec.executables = []
 
   # tempfile is still a standard library gem, and the released versions only support back to Ruby 2.5
   # spec.add_dependency("tempfile", "~> 0.3.1")
