@@ -42,12 +42,28 @@ Gem::Specification.new do |spec|
   spec.email = ["peter.boling@gmail.com"]
   spec.required_ruby_version = ">= 2.3"
 
+  # Linux distros may package ruby gems differently,
+  #   and securely certify them independently via alternate package management systems.
+  # Ref: https://gitlab.com/oauth-xx/version_gem/-/issues/3
+  # Hence, only enable signing if `SKIP_GEM_SIGNING` is not set in ENV.
+  # See CONTRIBUTING.md
+  user_cert = "certs/#{ENV.fetch("GEM_CERT_USER", ENV["USER"])}.pem"
+  cert_file_path = File.join(__dir__, user_cert)
+  cert_chain = cert_file_path.split(",")
+  cert_chain.select! { |fp| File.exist?(fp) }
+  if cert_file_path && cert_chain.any?
+    spec.cert_chain = cert_chain
+    if $PROGRAM_NAME.end_with?("gem") && ARGV[0] == "build" && !ENV.include?("SKIP_GEM_SIGNING")
+      spec.signing_key = File.join(Gem.user_home, ".ssh", "gem-private_key.pem")
+    end
+  end
+
   spec.summary = "ActiveSupport's Stream Silencing - Without ActiveSupport"
   spec.description = "ActiveSupport Kernel Reporting Detritus with a few enhancements"
   spec.homepage = "https://github.com/pboling/#{spec.name}"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "#{spec.homepage}/tree/v#{spec.version}"
-  # spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/v#{spec.version}/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"] = "#{spec.homepage}/issues"
   spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/#{spec.name}/#{spec.version}"
   spec.metadata["wiki_uri"] = "#{spec.homepage}/wiki"
@@ -59,10 +75,10 @@ Gem::Specification.new do |spec|
   spec.files = Dir[
     "lib/**/*.rb",
     "CODE_OF_CONDUCT.md",
-    # "CONTRIBUTING.md",
+    "CONTRIBUTING.md",
     "LICENSE",
     "README.md",
-    # "SECURITY.md"
+    "SECURITY.md"
   ]
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
