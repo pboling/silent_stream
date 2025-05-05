@@ -6,16 +6,19 @@
 /pkg/
 /spec/reports/
 /tmp/
-/.idea/
+.byebug_history
 
 # rspec failure tracking
 .rspec_status
 
-.byebug_history
+
+# IDEs
+/.idea/
 
 # iCloud Drive
 .nosync
 
+# Packaging Artifacts
 *.gem
-
 /gemfiles/*.lock
+Appraisal.*.gemfile.lock
