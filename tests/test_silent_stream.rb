@@ -111,7 +111,7 @@ class KernelTest < SilentStream::TestCase
   end
 
   def test_capture_stdout_system_call
-    skip("JRuby doesn't capture here for some reason") if RubyEngine.jruby? && RubyVersion.is?("2.5")
+    skip("JRuby 9.2 doesn't capture here for some reason") if RubyEngine.jruby? && RubyVersion.is?("2.5")
     assert_equal("STDOUT\n", MyClass.capture(:stdout) { system("echo STDOUT") })
   end
 end
