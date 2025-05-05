@@ -76,7 +76,7 @@ Gem::Specification.new do |spec|
   # Specify which files should be added to the gem when it is released.
   spec.files = Dir[
     # Splats (alphabetical)
-    "lib/**/*.rb"
+    "lib/**/*.rb",
   ]
   # Automatically included with gem package, no need to list again in files.
   spec.extra_rdoc_files = Dir[
@@ -109,13 +109,13 @@ Gem::Specification.new do |spec|
   spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.7")
 
   # Development dependencies
-  spec.add_development_dependency("minitest", ">= 5.22")
+  spec.add_development_dependency("minitest", ">= 5.15")                # ruby >= 2.2, later releases are ruby >= 2.6+
   spec.add_development_dependency("minitest-reporters")
   spec.add_development_dependency("mocha")
   spec.add_development_dependency("rake", "~> 13.0")                    # ruby >= 2.2
+  spec.add_development_dependency("ruby_engine", "~> 2.0")
   spec.add_development_dependency("stone_checksums", "~> 1.0")          # ruby >= 2.2
   spec.add_development_dependency("test-unit", ">= 3.2")
-  spec.add_development_dependency("ruby_engine", "~> 2.0")
   # Linting - rubocop-lts v10 is a rubocop wrapper for Ruby >= 2.3,
   #   and should only be bumped when dropping old Ruby support
   # NOTE: it can only be installed on, and run on Ruby >= 2.7, so we add the dependency in the Gemfile.
