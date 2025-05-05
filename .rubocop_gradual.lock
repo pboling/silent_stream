@@ -15,7 +15,7 @@
     [113, 3, 53, "Gemspec/DependencyVersion: Dependency version specification is required.", 2976601152],
     [114, 3, 40, "Gemspec/DependencyVersion: Dependency version specification is required.", 2300588954]
   ],
-  "tests/test_silent_stream.rb:583269831": [
+  "tests/test_silent_stream.rb:1769028551": [
     [33, 19, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
     [67, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
     [74, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
