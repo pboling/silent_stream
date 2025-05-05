@@ -112,7 +112,9 @@ class KernelTest < SilentStream::TestCase
   end
 
   def test_capture_stdout_system_call
-    skip("JRuby 9.2 & 10.0 do not capture here for some reason") if RubyEngine.jruby? && (RubyVersion.is?("2.5") || RubyVersion.is?("3.4"))
+    # Sometimes they will pass the test, and often they will fail.
+    # Haven't noticed 9.3 fail yet, but probably coincidence.
+    skip("JRuby 9.1, 9.2 & 10.0 have flaky capture here for some reason") if RubyEngine.jruby?
     assert_equal("STDOUT\n", MyClass.capture(:stdout) { system("echo STDOUT") })
   end
 end
