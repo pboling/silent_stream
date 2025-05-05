@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
-require "silent_stream/version"
-
+# Std Lib
 require "tempfile"
-require "logger"
+
+# Extracted Std Lib
+require "logger" # as of Ruby 3.5
+
+# External gems
+require "version_gem"
+
+# This gem
+require_relative "silent_stream/version"
 
 module SilentStream
   def self.included(base)
@@ -17,7 +24,7 @@ module SilentStream
     # param switch is true or false
     # By default it is true, when means we don't want logging.
     # Switching it to false enables logging again.
-    # By default ERROR log level continues to be logged.
+    # By default, ERROR log level continues to be logged.
     # The return value is the return value of the block,
     #   so you can use it without changing code structure.
     #
@@ -153,4 +160,8 @@ module SilentStream
       end
     end
   end
+end
+
+SilentStream::Version.class_eval do
+  extend VersionGem::Basic
 end

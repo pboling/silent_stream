@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-lib = File.expand_path("lib", __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "silent_stream/version"
+# Get the GEMFILE_VERSION without *require* "my_gem/version", for code coverage accuracy
+# See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
+# Kernel.load because load is overloaded in RubyGems during gemspec evaluation
+Kernel.load("lib/silent_stream/version.rb")
+gem_version = SilentStream::Version::VERSION
+SilentStream::Version.send(:remove_const, :VERSION)
 
 Gem::Specification.new do |spec|
   authors = [
@@ -37,7 +40,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.name = "silent_stream"
-  spec.version = SilentStream::VERSION
+  spec.version = gem_version
   spec.authors = authors.map { |_gh, name| name }
   spec.email = ["peter.boling@gmail.com"]
 

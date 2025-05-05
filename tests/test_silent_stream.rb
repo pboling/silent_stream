@@ -117,4 +117,8 @@ class KernelTest < SilentStream::TestCase
     skip("JRuby 9.1, 9.2 & 10.0 have flaky capture here for some reason") if RubyEngine.jruby?
     assert_equal("STDOUT\n", MyClass.capture(:stdout) { system("echo STDOUT") })
   end
+
+  def test_version
+    assert_match(/\A\d+\.\d+\.\d+\z/, SilentStream::Version::VERSION)
+  end
 end
