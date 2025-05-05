@@ -23,7 +23,7 @@ GIT
 PATH
   remote: .
   specs:
-    silent_stream (1.0.9)
+    silent_stream (1.0.10)
       logger (>= 1.4.4)
       version_gem (~> 1.1, >= 1.1.7)
 
