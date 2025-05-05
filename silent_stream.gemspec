@@ -114,6 +114,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("mocha")
   spec.add_development_dependency("rake", "~> 13.0")                    # ruby >= 2.2
   spec.add_development_dependency("ruby_engine", "~> 2.0")
+  spec.add_development_dependency("ruby_version", "~> 1.0")
   spec.add_development_dependency("stone_checksums", "~> 1.0")          # ruby >= 2.2
   spec.add_development_dependency("test-unit", ">= 3.2")
   # Linting - rubocop-lts v10 is a rubocop wrapper for Ruby >= 2.3,
