@@ -77,7 +77,7 @@ by following the instructions below.
 Add my public key (if you haven’t already, expires 2045-04-29) as a trusted certificate:
 
 ```shell
-gem cert --add <(curl -Ls https://raw.github.com/pboling/silent_stream/main/certs/pboling.pem)
+gem cert --add <(curl -Ls https://raw.github.com/pboling/silent_stream/master/certs/pboling.pem)
 ```
 
 You only need to do that once.  Then proceed to install with:
@@ -234,7 +234,7 @@ chat rooms and mailing lists is expected to follow the [![Contributor Covenant 2
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/pboling/silent_stream/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/pboling/silent_stream/-/graphs/master][🚎contributors-gl]
 
 ## ⭐️ Star History
 
@@ -313,7 +313,7 @@ or one of the others at the head of this README.
 [![Buy me a latte][🖇buyme-img]][🖇buyme]
 
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
-[⛳️gem-namespace]: https://github.com/pboling/silent_stream/blob/main/lib/masq.rb
+[⛳️gem-namespace]: https://github.com/pboling/silent_stream/blob/master/lib/masq.rb
 [⛳️namespace-img]: https://img.shields.io/badge/namespace-SilentStream-brightgreen.svg?style=flat&logo=ruby&logoColor=white
 [⛳️gem-name]: https://rubygems.org/gems/silent_stream
 [⛳️name-img]: https://img.shields.io/badge/name-silent_stream-brightgreen.svg?style=flat&logo=rubygems&logoColor=red
@@ -371,7 +371,7 @@ or one of the others at the head of this README.
 [🔑cc-cov]: https://qlty.sh/gh/pboling/projects/silent_stream
 [🔑cc-covi♻️]: https://qlty.sh/badges/3884b648-a5a9-4458-9671-a2ce38a1d470/test_coverage.svg
 [🔑codecov]: https://codecov.io/gh/pboling/silent_stream
-[🔑codecovi♻️]: https://codecov.io/gh/pboling/silent_stream/branch/main/graph/badge.svg?token=Ad3ets1psE
+[🔑codecovi♻️]: https://codecov.io/gh/pboling/silent_stream/branch/master/graph/badge.svg?token=Ad3ets1psE
 [🔑coveralls]: https://coveralls.io/github/pboling/silent_stream?branch=main
 [🔑coveralls-img]: https://coveralls.io/repos/github/pboling/silent_stream/badge.svg?branch=main
 [🔑depfu]: https://depfu.com/github/pboling/silent_stream?project_id=5828
@@ -442,7 +442,7 @@ or one of the others at the head of this README.
 [🖐contrib-rocks]: https://contrib.rocks
 [🖐contributors]: https://github.com/pboling/silent_stream/graphs/contributors
 [🖐contributors-img]: https://contrib.rocks/image?repo=pboling/silent_stream
-[🚎contributors-gl]: https://gitlab.com/pboling/silent_stream/-/graphs/main
+[🚎contributors-gl]: https://gitlab.com/pboling/silent_stream/-/graphs/master
 [🪇conduct]: CODE_OF_CONDUCT.md
 [🪇conduct-img]: https://img.shields.io/badge/Contributor_Covenant-2.1-4baaaa.svg
 [📌pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
@@ -466,4 +466,4 @@ or one of the others at the head of this README.
 [📄ilo-declaration]: https://www.ilo.org/declaration/lang--en/index.htm
 [📄ilo-declaration-img]: https://img.shields.io/badge/ILO_Fundamental_Principles-✓-brightgreen.svg?style=flat
 [🚎yard-current]: http://rubydoc.info/gems/silent_stream
-[🚎yard-head]: https://rubydoc.info/github/pboling/silent_stream/main
+[🚎yard-head]: https://rubydoc.info/github/pboling/silent_stream/master

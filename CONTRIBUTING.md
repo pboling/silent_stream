@@ -77,7 +77,7 @@ Your picture could be here!
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/pboling/silent_stream/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/pboling/silent_stream/-/graphs/master][🚎contributors-gl]
 
 ## For Maintainers
 
@@ -117,10 +117,10 @@ NOTE: To build without signing the gem you must set `SKIP_GEM_SIGNING` to some v
 
 [🚎src-main]: https://gitlab.com/pboling/silent_stream
 [🧪build]: https://github.com/pboling/silent_stream/actions
-[🤝conduct]: https://gitlab.com/pboling/silent_stream/-/blob/main/CODE_OF_CONDUCT.md
+[🤝conduct]: https://gitlab.com/pboling/silent_stream/-/blob/master/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
 [🖐contributors]: https://github.com/pboling/silent_stream/graphs/contributors
-[🚎contributors-gl]: https://gitlab.com/pboling/silent_stream/-/graphs/main
+[🚎contributors-gl]: https://gitlab.com/pboling/silent_stream/-/graphs/master
 [🖐contributors-img]: https://contrib.rocks/image?repo=pboling/silent_stream
 [💎rubygems]: https://rubygems.org
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
