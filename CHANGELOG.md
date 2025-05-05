@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Releases will be signed by my key that expires 2045-05-04
 - Allow unsigned gem builds (for linux distros)
   - In the ENV set `SKIP_GEM_SIGNING` to any value
+- Compatibility with Ruby 3.5
+  - Make `logger` a direct dependency, since it is removed from stdlib in Ruby 3.5
+- Expanded CI test matrix to include JRuby, TruffleRuby, and MRI 2.3+, including heads
 
 ## [1.0.8] - 2024-03-20
 
