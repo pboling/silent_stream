@@ -372,8 +372,8 @@ or one of the others at the head of this README.
 [🔑cc-covi♻️]: https://qlty.sh/badges/3884b648-a5a9-4458-9671-a2ce38a1d470/test_coverage.svg
 [🔑codecov]: https://codecov.io/gh/pboling/silent_stream
 [🔑codecovi♻️]: https://codecov.io/gh/pboling/silent_stream/branch/master/graph/badge.svg?token=Ad3ets1psE
-[🔑coveralls]: https://coveralls.io/github/pboling/silent_stream?branch=main
-[🔑coveralls-img]: https://coveralls.io/repos/github/pboling/silent_stream/badge.svg?branch=main
+[🔑coveralls]: https://coveralls.io/github/pboling/silent_stream?branch=master
+[🔑coveralls-img]: https://coveralls.io/repos/github/pboling/silent_stream/badge.svg?branch=master
 [🔑depfu]: https://depfu.com/github/pboling/silent_stream?project_id=5828
 [🔑depfui♻️]: https://badges.depfu.com/badges/6633827ecc1ad3b5dd749b4ac822347b/count.svg
 [🖐codeQL]: https://github.com/pboling/silent_stream/security/code-scanning
