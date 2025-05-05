@@ -5,13 +5,20 @@ require "minitest"
 require "minitest/reporters"
 require "minitest/autorun"
 require "mocha/minitest"
+require "ruby_engine"
+require "ruby_version"
 
 reporter_options = {color: true}
 Minitest::Reporters.use!([Minitest::Reporters::DefaultReporter.new(reporter_options)])
 
-require "kettle-soup-cover"
+begin
+  # In CI coverage gems are not available except on the coverage workflow
+  require "kettle-soup-cover"
 
-require "simplecov" if Kettle::Soup::Cover::DO_COV
+  require "simplecov" if defined?(Kettle) && Kettle::Soup::Cover::DO_COV
+rescue LoadError
+  nil
+end
 
 # This gem
 require "silent_stream"
@@ -77,6 +84,7 @@ class KernelTest < SilentStream::TestCase
   end
 
   def test_silence_stream_closes_file_descriptors
+    skip("truffleruby IOError: unable to modify data") if RubyEngine.truffle?
     stream = StringIO.new
     dup_stream = StringIO.new
     stream.stubs(:dup).returns(dup_stream)
@@ -101,6 +109,12 @@ class KernelTest < SilentStream::TestCase
     assert_equal("STDERR", MyClass.capture(:stderr) { $stderr.print("STDERR") })
     assert_equal("STDOUT", MyClass.capture(:stdout) { print("STDOUT") })
     assert_equal("STDERR\n", MyClass.capture(:stderr) { system("echo STDERR 1>&2") })
+  end
+
+  def test_capture_stdout_system_call
+    # Sometimes they will pass the test, and often they will fail.
+    # Haven't noticed 9.3 fail yet, but probably coincidence.
+    skip("JRuby 9.1, 9.2 & 10.0 have flaky capture here for some reason") if RubyEngine.jruby?
     assert_equal("STDOUT\n", MyClass.capture(:stdout) { system("echo STDOUT") })
   end
 end
