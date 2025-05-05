@@ -5,6 +5,7 @@ require "minitest"
 require "minitest/reporters"
 require "minitest/autorun"
 require "mocha/minitest"
+require "ruby_engine"
 
 reporter_options = {color: true}
 Minitest::Reporters.use!([Minitest::Reporters::DefaultReporter.new(reporter_options)])
@@ -82,6 +83,7 @@ class KernelTest < SilentStream::TestCase
   end
 
   def test_silence_stream_closes_file_descriptors
+    skip("truffleruby IOError: unable to modify data") if RubyEngine.truffle?
     stream = StringIO.new
     dup_stream = StringIO.new
     stream.stubs(:dup).returns(dup_stream)
