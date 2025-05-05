@@ -11,7 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Removed
 
-## [1.0.9] - 2025-05-04
+## [1.0.9] - 2025-05-05
+- COVERAGE:  40.62% -- 26/64 lines in 2 files
+- BRANCH COVERAGE:  10.00% -- 1/10 branches in 2 files
+- 54.55% documented
 ### Added
 - Releases will be signed by my key that expires 2045-05-04
 - Allow unsigned gem builds (for linux distros)
