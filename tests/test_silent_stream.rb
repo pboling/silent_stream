@@ -15,7 +15,7 @@ begin
   # In CI coverage gems are not available except on the coverage workflow
   require "kettle-soup-cover"
 
-  require "simplecov" if defined?(Kettle::Soup::Cover) && Kettle::Soup::Cover::DO_COV
+  require "simplecov" if Kettle::Soup::Cover::DO_COV
 rescue LoadError
   nil
 end
