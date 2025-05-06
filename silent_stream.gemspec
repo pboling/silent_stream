@@ -35,7 +35,9 @@ Gem::Specification.new do |spec|
   spec.name = "silent_stream"
   # Loading version into an anonymous module allows version.rb to get code coverage from SimpleCov!
   # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
-  spec.version = Module.new.tap { |mod| Kernel.load("lib/silent_stream/version.rb", mod) }::SilentStream::Version::VERSION
+  spec.version = Module.new
+                       .tap { |mod| Kernel.load("lib/silent_stream/version.rb", mod) }
+                       .const_get("SilentStream::Version::VERSION")
   spec.authors = authors.map { |_gh, name| name }
   spec.email = ["peter.boling@gmail.com"]
 
