@@ -470,4 +470,4 @@ or one of the others at the head of this README.
 [🚎yard-current]: http://rubydoc.info/gems/silent_stream
 [🚎yard-head]: https://rubydoc.info/github/pboling/silent_stream/master
 [💎stone_checksums]: https://github.com/pboling/stone_checksums
-[💎SHA_checksums]: https://gitlab.com/oauth-xx/version_gem/-/tree/main/checksums
+[💎SHA_checksums]: https://gitlab.com/pboling/silent_stream/-/tree/main/checksums
