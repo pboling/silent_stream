@@ -315,7 +315,7 @@ or one of the others at the head of this README.
 [![Buy me a latte][🖇buyme-img]][🖇buyme]
 
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
-[⛳️gem-namespace]: https://github.com/pboling/silent_stream/blob/master/lib/masq.rb
+[⛳️gem-namespace]: https://github.com/pboling/silent_stream
 [⛳️namespace-img]: https://img.shields.io/badge/namespace-SilentStream-brightgreen.svg?style=flat&logo=ruby&logoColor=white
 [⛳️gem-name]: https://rubygems.org/gems/silent_stream
 [⛳️name-img]: https://img.shields.io/badge/name-silent_stream-brightgreen.svg?style=flat&logo=rubygems&logoColor=red
