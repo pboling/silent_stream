@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+gem_version =
+  if RUBY_VERSION >= "3.1"
+    # Loading version into an anonymous module allows version.rb to get code coverage from SimpleCov!
+    # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
+    Module.new.tap { |mod| Kernel.load("lib/silent_stream/version.rb", mod) }::SilentStream::Version::VERSION
+  else
+    # TODO: Remove this hack once support for Ruby 3.0 and below is removed
+    Kernel.load("lib/silent_stream/version.rb")
+    g_ver = SilentStream::Version::VERSION
+    SilentStream::Version.send(:remove_const, :VERSION)
+    g_ver
+  end
+
 Gem::Specification.new do |spec|
   authors = [
     # Everyone who touched the files extracted from Rails:
@@ -33,11 +46,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.name = "silent_stream"
-  # Loading version into an anonymous module allows version.rb to get code coverage from SimpleCov!
-  # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
-  spec.version = Module.new
-                       .tap { |mod| Kernel.load("lib/silent_stream/version.rb", mod) }
-                       .const_get("SilentStream::Version::VERSION")
+  spec.version = gem_version
   spec.authors = authors.map { |_gh, name| name }
   spec.email = ["peter.boling@gmail.com"]
 
