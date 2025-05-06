@@ -318,7 +318,7 @@ or one of the others at the head of this README.
 [⛳️gem-namespace]: https://github.com/pboling/silent_stream
 [⛳️namespace-img]: https://img.shields.io/badge/namespace-SilentStream-brightgreen.svg?style=flat&logo=ruby&logoColor=white
 [⛳️gem-name]: https://rubygems.org/gems/silent_stream
-[⛳️name-img]: https://img.shields.io/badge/name-silent_stream-brightgreen.svg?style=flat&logo=rubygems&logoColor=red
+[⛳️name-img]: https://img.shields.io/badge/name-silent__stream-brightgreen.svg?style=flat&logo=rubygems&logoColor=red
 [🚂bdfl-blog]: http://www.railsbling.com/tags/silent_stream
 [🚂bdfl-blog-img]: https://img.shields.io/badge/blog-railsbling-0093D0.svg?style=for-the-badge&logo=rubyonrails&logoColor=orange
 [🚂bdfl-contact]: http://www.railsbling.com/contact
