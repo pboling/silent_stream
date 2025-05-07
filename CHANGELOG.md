@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - BRANCH COVERAGE:  10.00% -- 1/10 branches in 2 files
 - 54.55% documented
 ### Added
-- Releases will be signed by my key that expires 2045-05-04
+- Releases will be signed by my key that expires 2045-04-29
 - Allow unsigned gem builds (for linux distros)
   - In the ENV set `SKIP_GEM_SIGNING` to any value
 - Compatibility with Ruby 3.5
