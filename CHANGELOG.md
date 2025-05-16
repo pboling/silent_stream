@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Removed
 
+## [1.0.11] - 2025-05-16
+- COVERAGE:  88.06% -- 59/67 lines in 2 files
+- BRANCH COVERAGE:  30.00% -- 3/10 branches in 2 files
+- 50.00% documented
+### Changed
+- Reduced minimum version of logger dependency to 1.2
+  - To help with testing old libraries, or newer libraries that still support old libraries
+### Fixed
+- Code Coverage setup in CI
+
 ## [1.0.10] - 2025-05-05
 - COVERAGE:  47.76% -- 32/67 lines in 2 files
 - BRANCH COVERAGE:  10.00% -- 1/10 branches in 2 files

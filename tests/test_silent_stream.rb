@@ -12,10 +12,14 @@ reporter_options = {color: true}
 Minitest::Reporters.use!([Minitest::Reporters::DefaultReporter.new(reporter_options)])
 
 begin
-  # In CI coverage gems are not available except on the coverage workflow
+  # In CI coverage-related gems are not available except on the coverage workflow
   require "kettle-soup-cover"
 
-  require "simplecov" if Kettle::Soup::Cover::DO_COV
+  if Kettle::Soup::Cover::DO_COV
+    require "simplecov"
+
+    SimpleCov.external_at_exit = true
+  end
 rescue LoadError
   nil
 end
