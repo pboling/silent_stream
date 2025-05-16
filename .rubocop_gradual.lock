@@ -11,22 +11,22 @@
     [144, 22, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
     [145, 24, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
   ],
-  "silent_stream.gemspec:1960689022": [
+  "silent_stream.gemspec:3575283138": [
     [4, 6, 12, "Gemspec/RubyVersionGlobalsUsage: Do not use `RUBY_VERSION` in gemspec file.", 31296028],
     [124, 3, 53, "Gemspec/DependencyVersion: Dependency version specification is required.", 2976601152],
     [125, 3, 40, "Gemspec/DependencyVersion: Dependency version specification is required.", 2300588954]
   ],
-  "tests/test_silent_stream.rb:2412196250": [
-    [33, 19, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
-    [67, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [74, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [79, 27, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [80, 28, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [80, 38, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [81, 39, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [96, 27, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [97, 27, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163],
-    [102, 39, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [103, 39, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
+  "tests/test_silent_stream.rb:3573398764": [
+    [37, 19, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
+    [71, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [78, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [83, 27, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [84, 28, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [84, 38, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [85, 39, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [100, 27, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [101, 27, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163],
+    [106, 39, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [107, 39, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
   ]
 }
