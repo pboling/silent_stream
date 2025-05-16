@@ -1,8 +1,8 @@
 name: Test Coverage
 
 env:
-  K_SOUP_COV_MIN_BRANCH: 10
-  K_SOUP_COV_MIN_LINE: 40
+  K_SOUP_COV_MIN_BRANCH: 30
+  K_SOUP_COV_MIN_LINE: 88
   K_SOUP_COV_MIN_HARD: true
   K_SOUP_COV_FORMATTERS: "html,rcov,lcov,json,tty"
   K_SOUP_COV_DO: true
