@@ -4,6 +4,9 @@ require "bundler/gem_tasks"
 
 defaults = []
 
+# See: https://docs.gitlab.com/ci/variables/predefined_variables/
+is_gitlab = ENV.fetch("GITLAB_CI", "false").casecmp("true") == 0
+
 ### DEVELOPMENT TASKS
 # Setup Kettle Soup Cover
 begin
@@ -40,10 +43,13 @@ end
 # Setup MiniTest
 require "rake/testtask"
 
-Rake::TestTask.new do |t|
+Rake::TestTask.new(:spec) do |t|
   t.test_files = FileList["tests/**/test_*.rb"]
 end
 defaults << "test"
+
+desc "run spec task with test task"
+task test: :spec
 
 # Setup RuboCop-LTS
 begin
@@ -85,7 +91,7 @@ begin
     t.verbose = false
     t.source_files = "{lib,spec}/**/*.rb"
   end
-  defaults << "reek"
+  defaults << "reek" unless is_gitlab
 rescue LoadError
   desc("(stub) reek is unavailable")
   task(:reek) do
