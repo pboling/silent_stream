@@ -117,7 +117,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency("logger", "~> 1.2")                 # Ruby >= 0
 
   # Utilities
-  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.7")
+  spec.add_dependency("version_gem", ">= 1.1.8", "< 3")   # Ruby >= 2.2
 
   # Development dependencies
   spec.add_development_dependency("minitest", ">= 5.15")                # ruby >= 2.2, later releases are ruby >= 2.6+
