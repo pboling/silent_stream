@@ -112,7 +112,9 @@ Gem::Specification.new do |spec|
 
   # tempfile is still a standard library gem, and the released versions only support back to Ruby 2.5
   # spec.add_dependency("tempfile", "~> 0.3.1")
-  spec.add_dependency("logger", ">= 1.4.4") # Ruby >= 2.3, newer minor versions require Ruby >= 2.5
+  #
+  # spec.add_dependency("logger", ">= 1.4.4")             # Ruby >= 2.3, newer minor versions require Ruby >= 2.5
+  spec.add_dependency("logger", "~> 1.2")                 # Ruby >= 0
 
   # Utilities
   spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.7")
