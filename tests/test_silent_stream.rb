@@ -20,8 +20,9 @@ begin
 
     SimpleCov.external_at_exit = true
   end
-rescue LoadError
-  nil
+rescue LoadError => error
+  # check the error message and re-raise if not what is expected
+  raise error unless error.message.include?("kettle")
 end
 
 # This gem

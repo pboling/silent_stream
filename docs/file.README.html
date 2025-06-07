@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.37
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><h1 id="silentstream">SilentStream</h1>
+
+<p><a href="https://rubygems.org/gems/silent_stream"><img src="https://img.shields.io/gem/v/silent_stream.svg" alt="Version"></a><br>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a><br>
+<a href="https://rubygems.org/gems/silent_stream"><img src="https://img.shields.io/gem/rd/silent_stream.svg" alt="Downloads Rank"></a><br>
+<a href="https://www.codetriage.com/pboling/silent_stream"><img src="https://www.codetriage.com/pboling/silent_stream/badges/users.svg" alt="Open Source Helpers"></a><br>
+<a href="https://depfu.com/github/pboling/silent_stream?project_id=5828"><img src="https://badges.depfu.com/badges/6633827ecc1ad3b5dd749b4ac822347b/count.svg" alt="Depfu"></a><br>
+<a href="https://codecov.io/gh/pboling/silent_stream"><img src="https://codecov.io/gh/pboling/silent_stream/branch/master/graph/badge.svg?token=Ad3ets1psE" alt="CodeCov Test Coverage"></a><br>
+<a href="https://coveralls.io/github/pboling/silent_stream?branch=master"><img src="https://coveralls.io/repos/github/pboling/silent_stream/badge.svg?branch=master" alt="Coveralls Test Coverage"></a><br>
+<a href="https://qlty.sh/gh/pboling/projects/silent_stream"><img src="https://qlty.sh/badges/3884b648-a5a9-4458-9671-a2ce38a1d470/test_coverage.svg" alt="CodeClimate Test Coverage"></a><br>
+<a href="https://qlty.sh/gh/pboling/projects/silent_stream"><img src="https://qlty.sh/badges/3884b648-a5a9-4458-9671-a2ce38a1d470/maintainability.svg" alt="Maintainability"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/heads.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/heads.yml/badge.svg" alt="CI Heads"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/current.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/current.yml/badge.svg" alt="CI Current"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/truffle.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/truffle.yml/badge.svg" alt="CI Truffle Ruby"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/jruby.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/jruby.yml/badge.svg" alt="CI JRuby"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/supported.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/supported.yml/badge.svg" alt="CI Supported"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/legacy.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/legacy.yml/badge.svg" alt="CI Legacy"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/unsupported.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/unsupported.yml/badge.svg" alt="CI Unsupported"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/ancient.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/ancient.yml/badge.svg" alt="CI Ancient"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/coverage.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/coverage.yml/badge.svg" alt="CI Test Coverage"></a><br>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/style.yml"><img src="https://github.com/pboling/silent_stream/actions/workflows/style.yml/badge.svg" alt="CI Style"></a></p>
+
+<hr>
+
+<p><a href="https://liberapay.com/pboling/donate"><img src="https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay" alt="Liberapay Goal Progress"></a><br>
+<a href="https://github.com/sponsors/pboling"><img src="https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&amp;logo=github" alt="Sponsor Me on Github"></a><br>
+<a href="https://www.buymeacoffee.com/pboling"><img src="https://img.shields.io/badge/buy_me_a_coffee-%E2%9C%93-yellow.svg?style=flat" alt="Buy me a coffee"></a><br>
+<a href="https://polar.sh/pboling"><img src="https://img.shields.io/badge/polar-donate-yellow.svg" alt="Donate on Polar"></a><br>
+<a href="https://ko-fi.com/O5O86SNP4"><img src="https://img.shields.io/badge/a_more_different_coffee-%E2%9C%93-yellow.svg" alt="Donate to my FLOSS or refugee efforts at ko-fi.com"></a><br>
+<a href="https://patreon.com/galtzo"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Donate to my FLOSS or refugee efforts using Patreon"></a></p>
+
+<p>SilentStream is an extraction of some parts of ActiveSupport’s Kernel Reporting Core Extentions around silencing IO streams.</p>
+
+<p>Since July 2014 <code>silence_stream</code>, <code>silence_stderr</code>, <code>capture</code>, <code>silence</code>, and <code>quietly</code> have been deprecated because they are not thread safe.  See that discussion in the <a href="https://github.com/rails/rails/pull/13392">PR where it all went down</a>. I rely on them a lot in <em>single threaded</em> code, and so I plan to keep them alive.  With the exception of <code>silence</code>, which was just an alias of <code>capture</code>.</p>
+
+<p>This gem was taken out of Rails but it is <em>not</em> Rails dependent.  The extraction was total (<strong>even the tests</strong>!), and this is now a pure Ruby library, which can be used in any Ruby project without encumbrances.  <em>This gem has no runtime dependencies</em>.</p>
+
+<h2 id="-info-you-can-shake-a-stick-at">💡 Info you can shake a stick at</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tokens to Remember</th>
+      <th>
+<a href="https://rubygems.org/gems/silent_stream"><img src="https://img.shields.io/badge/name-silent__stream-brightgreen.svg?style=flat&amp;logo=rubygems&amp;logoColor=red" alt="Gem name"></a> <a href="https://github.com/pboling/silent_stream"><img src="https://img.shields.io/badge/namespace-SilentStream-brightgreen.svg?style=flat&amp;logo=ruby&amp;logoColor=white" alt="Gem namespace"></a>
+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Works with JRuby</td>
+      <td>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/jruby.yml"><img src="https://img.shields.io/badge/JRuby-9.1-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=red" alt="JRuby 9.1 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/jruby.yml"><img src="https://img.shields.io/badge/JRuby-9.2-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=red" alt="JRuby 9.2 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/jruby.yml"><img src="https://img.shields.io/badge/JRuby-9.3-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=red" alt="JRuby 9.3 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/jruby.yml"><img src="https://img.shields.io/badge/JRuby-9.4-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=red" alt="JRuby 9.4 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/current.yml"><img src="https://img.shields.io/badge/JRuby-current-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="JRuby 10.0 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/heads.yml"><img src="https://img.shields.io/badge/JRuby-HEAD-FBE742?style=for-the-badge&amp;logo=ruby&amp;logoColor=blue" alt="JRuby HEAD Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Works with Truffle Ruby</td>
+      <td>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/truffle.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-22.3-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 22.3 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/truffle.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-23.0-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 23.0 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/truffle.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-23.1-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=pink" alt="Truffle Ruby 23.1 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/current.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-current-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="Truffle Ruby 24.1 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/heads.yml"><img src="https://img.shields.io/badge/Truffle_Ruby-HEAD-34BCB1?style=for-the-badge&amp;logo=ruby&amp;logoColor=blue" alt="Truffle Ruby HEAD Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Works with MRI Ruby 3</td>
+      <td>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/legacy.yml"><img src="https://img.shields.io/badge/Ruby-3.0-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.0 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/supported.yml"><img src="https://img.shields.io/badge/Ruby-3.1-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.1 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/supported.yml"><img src="https://img.shields.io/badge/Ruby-3.2-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.2 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/supported.yml"><img src="https://img.shields.io/badge/Ruby-3.3-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 3.3 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/current.yml"><img src="https://img.shields.io/badge/Ruby-current-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=green" alt="Ruby 3.4 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/heads.yml"><img src="https://img.shields.io/badge/Ruby-HEAD-CC342D?style=for-the-badge&amp;logo=ruby&amp;logoColor=blue" alt="Ruby HEAD Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Works with MRI Ruby 2</td>
+      <td>
+<a href="https://github.com/pboling/silent_stream/actions/workflows/ancient.yml"><img src="https://img.shields.io/badge/Ruby-2.3-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.3 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/ancient.yml"><img src="https://img.shields.io/badge/Ruby-2.4-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.4 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/ancient.yml"><img src="https://img.shields.io/badge/Ruby-2.5-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.5 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/unsupported.yml"><img src="https://img.shields.io/badge/Ruby-2.6-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.6 Compat"></a> <a href="https://github.com/pboling/silent_stream/actions/workflows/unsupported.yml"><img src="https://img.shields.io/badge/Ruby-2.7-DF00CA?style=for-the-badge&amp;logo=ruby&amp;logoColor=white" alt="Ruby 2.7 Compat"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>
+<a href="https://gitlab.com/pboling/silent_stream/"><img src="https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&amp;logo=Gitlab&amp;logoColor=orange" alt="Source on GitLab.com"></a> <a href="https://codeberg.org/pboling/silent_stream"><img src="https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&amp;logo=CodeBerg&amp;logoColor=blue" alt="Source on CodeBerg.org"></a> <a href="https://github.com/pboling/silent_stream"><img src="https://img.shields.io/badge/GitHub-238636?style=for-the-badge&amp;logo=Github&amp;logoColor=green" alt="Source on Github.com"></a> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://img.shields.io/badge/KLOC-0.137-FFDD67.svg?style=for-the-badge&amp;logo=YouTube&amp;logoColor=blue" alt="The best SHA: dQw4w9WgXcQ!"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Documentation</td>
+      <td>
+<a href="http://rubydoc.info/gems/silent_stream"><img src="https://img.shields.io/badge/RubyDoc-Current_Release-943CD2?style=for-the-badge&amp;logo=readthedocs&amp;logoColor=white" alt="Current release on RubyDoc.info"></a> <a href="https://rubydoc.info/github/pboling/silent_stream/master"><img src="https://img.shields.io/badge/RubyDoc-HEAD-943CD2?style=for-the-badge&amp;logo=readthedocs&amp;logoColor=white" alt="HEAD on RubyDoc.info"></a> <a href="http://www.railsbling.com/tags/silent_stream"><img src="https://img.shields.io/badge/blog-railsbling-0093D0.svg?style=for-the-badge&amp;logo=rubyonrails&amp;logoColor=orange" alt="BDFL Blog"></a> <a href="https://gitlab.com/pboling/silent_stream/-/wikis/home"><img src="https://img.shields.io/badge/wiki-examples-943CD2.svg?style=for-the-badge&amp;logo=Wiki&amp;logoColor=white" alt="Wiki"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Compliance</td>
+      <td>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a> <a href="https://www.ilo.org/declaration/lang--en/index.htm"><img src="https://img.shields.io/badge/ILO_Fundamental_Principles-%E2%9C%93-brightgreen.svg?style=flat" alt="📄ilo-declaration-img"></a> <a href="file.SECURITY.html" title="&lt;img src=&quot;https://img.shields.io/badge/security-policy-brightgreen.svg?style=flat&quot; alt=&quot;Security Policy&quot;&gt;"><img src="https://img.shields.io/badge/security-policy-brightgreen.svg?style=flat" alt="Security Policy"></a> <a href="https://github.com/rubocop-lts/rubocop-lts"><img src="https://img.shields.io/badge/code_style-rubocop--lts-brightgreen.svg?plastic&amp;logo=ruby&amp;logoColor=white" alt="Enforced Code Style"></a> <a href="https://github.com/pboling/silent_stream/security/code-scanning"><img src="https://github.com/pboling/silent_stream/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL"></a> <a href="file.CODE_OF_CONDUCT.html" title="&lt;img src=&quot;https://img.shields.io/badge/Contributor_Covenant-2.1-4baaaa.svg&quot; alt=&quot;Contributor Covenant 2.1&quot;&gt;"><img src="https://img.shields.io/badge/Contributor_Covenant-2.1-4baaaa.svg" alt="Contributor Covenant 2.1"></a> <a href="https://semver.org/spec/v2.0.0.html"><img src="https://img.shields.io/badge/semver-2.0.0-FFDD67.svg?style=flat" alt="SemVer 2.0.0"></a> <a href="https://keepachangelog.com/en/1.0.0/"><img src="https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat" alt="Keep-A-Changelog 1.0.0"></a> <a href="https://gitmoji.dev"><img src="https://img.shields.io/badge/gitmoji-%20%F0%9F%98%9C%20%F0%9F%98%8D-FFDD67.svg?style=flat-square" alt="Gitmoji Commits"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Expert 1:1 Support</td>
+      <td>
+<a href="https://www.upwork.com/freelancers/~014942e9b056abdf86?mp_source=share"><img src="https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&amp;logo=Upwork&amp;logoColor=white" alt="Get help from me on Upwork"></a> <code>or</code> <a href="https://www.codementor.io/peterboling?utm_source=github&amp;utm_medium=button&amp;utm_term=peterboling&amp;utm_campaign=github"><img src="https://img.shields.io/badge/CodeMentor-Get_Help-1abc9c?style=for-the-badge&amp;logo=CodeMentor&amp;logoColor=white" alt="Get help from me on Codementor"></a>
+</td>
+    </tr>
+    <tr>
+      <td>Enterprise Support</td>
+      <td>
+<a href="https://tidelift.com/subscription"><img src="https://img.shields.io/badge/Tidelift_and_Sonar-Enterprise_Support-FD3456?style=for-the-badge&amp;logo=sonar&amp;logoColor=white" alt="Get help from me on Tidelift"></a><br>💡Subscribe for support guarantees covering <em>all</em> FLOSS dependencies!<br>💡Tidelift is part of <a href="https://blog.tidelift.com/tidelift-joins-sonar">Sonar</a>!<br>💡Tidelift pays maintainers to maintain the software you depend on!<br>📊<code>@</code>Pointy Haired Boss: An <a href="https://tidelift.com/subscription">enterprise support</a> subscription is “<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">never gonna let you down</a>”, and <em>supports</em> open source maintainers!</td>
+    </tr>
+    <tr>
+      <td>Comrade BDFL 🎖️</td>
+      <td>
+<a href="http://www.linkedin.com/in/peterboling"><img src="https://img.shields.io/badge/PeterBoling-LinkedIn-0B66C2?style=flat&amp;logo=newjapanprowrestling" alt="Follow Me on LinkedIn"></a> <a href="https://ruby.social/@galtzo"><img src="https://img.shields.io/mastodon/follow/109447111526622197?domain=https%3A%2F%2Fruby.social&amp;style=flat&amp;logo=mastodon&amp;label=Ruby%20%40galtzo" alt="Follow Me on Ruby.Social"></a> <a href="https://bsky.app/profile/galtzo.com"><img src="https://img.shields.io/badge/@galtzo.com-0285FF?style=flat&amp;logo=bluesky&amp;logoColor=white" alt="Follow Me on Bluesky"></a> <a href="http://www.railsbling.com/contact"><img src="https://img.shields.io/badge/Contact-BDFL-0093D0.svg?style=flat&amp;logo=rubyonrails&amp;logoColor=red" alt="Contact BDFL"></a> <a href="https://dev.to/galtzo"><img src="https://img.shields.io/badge/dev.to-0A0A0A?style=flat&amp;logo=devdotto&amp;logoColor=white" alt="My technical writing"></a>
+</td>
+    </tr>
+    <tr>
+      <td>
+<code>...</code> 💖</td>
+      <td>
+<a href="https://angel.co/u/peter-boling"><img src="https://img.shields.io/badge/peter--boling-orange?style=flat&amp;logo=wellfound" alt="Find Me on WellFound:"></a> <a href="https://www.crunchbase.com/person/peter-boling"><img src="https://img.shields.io/badge/peter--boling-purple?style=flat&amp;logo=crunchbase" alt="Find Me on CrunchBase"></a> <a href="https://linktr.ee/galtzo"><img src="https://img.shields.io/badge/galtzo-purple?style=flat&amp;logo=linktree" alt="My LinkTree"></a> <a href="https://about.me/peter.boling"><img src="https://img.shields.io/badge/about.me-0A0A0A?style=flat&amp;logo=aboutme&amp;logoColor=white" alt="More About Me"></a> <a href="https://codeberg.org/pboling">🧊</a> <a href="https://github.org/pboling">🐙</a>  <a href="https://sr.ht/~galtzo/">🛖</a> <a href="https://gitlab.com/pboling">🧪</a>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="note">NOTE</h2>
+
+<p>One aspect of what this gem provides can be achieved with the Rails’ built-in <a href="https://github.com/rails/rails/blob/5-2-stable/activesupport/lib/active_support/logger_silence.rb"><code>LoggerSilence</code></a>, which is thread safe.  You will have to decide what is right for you!</p>
+
+<h2 id="doing-a-rails--4-to-rails--5-upgrade">Doing a Rails &lt;= 4 to Rails &gt;= 5 Upgrade?</h2>
+
+<p>The reason for not keeping <code>silence</code> as it was in Rails 4, i.e. an alias of <code>capture</code>, is that the just mentioned <code>LoggerSilence</code> now uses this term, and it is shipping with Rails 5. I don’t want to make this gem incompatible with Rails 5, so you will have to convert Rails &lt;= 4 implementations that utilize <code>silence</code> over to <code>capture</code> when using this gem.  One further point of difference is this gem does not add the methods to <code>Kernel</code> or <code>Object</code>.  You can do that if you like via <code>include</code>.  By default this gem does not pollute anything, so you will need to <code>include SilentStream</code> in any class using these methods.</p>
+
+<h2 id="-installation">✨ Installation</h2>
+
+<p>Install the gem and add to the application’s Gemfile by executing:</p>
+
+<pre class="code ruby"><code class="ruby">$ bundle add silent_stream
+</code></pre>
+
+<p>If bundler is not being used to manage dependencies, install the gem by executing:</p>
+
+<pre class="code ruby"><code class="ruby">$ gem install silent_stream
+</code></pre>
+
+<h3 id="-secure-installation">🔒 Secure Installation</h3>
+
+<p><code>silent_stream</code> is cryptographically signed, and has verifiable <a href="https://gitlab.com/pboling/silent_stream/-/tree/main/checksums">SHA-256 and SHA-512</a> checksums by<br>
+<a href="https://github.com/pboling/stone_checksums">stone_checksums</a>. Be sure the gem you install hasn’t been tampered with<br>
+by following the instructions below.</p>
+
+<p>Add my public key (if you haven’t already, expires 2045-04-29) as a trusted certificate:</p>
+
+<pre class="code language-shell"><code class="language-shell">gem cert --add &lt;(curl -Ls https://raw.github.com/pboling/silent_stream/master/certs/pboling.pem)
+</code></pre>
+
+<p>You only need to do that once.  Then proceed to install with:</p>
+
+<pre class="code language-shell"><code class="language-shell">gem install silent_stream -P MediumSecurity
+</code></pre>
+
+<p>The <code>MediumSecurity</code> trust profile will verify signed gems, but allow the installation of unsigned dependencies.</p>
+
+<p>This is necessary because not all of <code>silent_stream</code>’s dependencies are signed, so we cannot use <code>HighSecurity</code>.</p>
+
+<p>If you want to up your security game full-time:</p>
+
+<pre class="code language-shell"><code class="language-shell">bundle config set --global trust-policy MediumSecurity
+</code></pre>
+
+<p>NOTE: Be prepared to track down certs for signed gems and add them the same way you added mine.</p>
+
+<h2 id="-basic-usage">🔧 Basic Usage</h2>
+
+<p>Four standard methods you may be familiar with from ActiveSupport’s previous implementation are provided:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_silence_stderr'>silence_stderr</span>
+<span class='id identifier rubyid_silence_stream'>silence_stream</span>
+<span class='id identifier rubyid_capture'>capture</span>
+<span class='id identifier rubyid_quietly'>quietly</span>
+</code></pre>
+
+<p>They are direct replicas, <em>except</em> not mixed into <code>Kernel</code> or <code>Object</code>, so in order to use them you must mix them into your classes or modules.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>Bogosity</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="SilentStream.html" title="SilentStream (module)">SilentStream</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="SilentStream/Extracted.html" title="SilentStream::Extracted (module)">Extracted</a></span></span> <span class='comment'># allows use at instance level
+</span>  <span class='id identifier rubyid_extend'>extend</span> <span class='const'><span class='object_link'><a href="SilentStream.html" title="SilentStream (module)">SilentStream</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="SilentStream/Extracted.html" title="SilentStream::Extracted (module)">Extracted</a></span></span> <span class='comment'># allows use at class level
+</span>  <span class='comment'># or
+</span>  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="SilentStream.html" title="SilentStream (module)">SilentStream</a></span></span> <span class='comment'># access everything, and add #silence_all method, see below
+</span><span class='kw'>end</span>
+</code></pre>
+
+<p>In addition there is a <code>silence_all</code> method that is a useful wrapper that can be easily instrumented (turned off and on) with an ENV variable switch.</p>
+
+<p>Including the <code>SilentStream</code> namespace fully gives access to this enhanced method, as well as the extracted methods above, and also makes everything available at the class and instance levels.</p>
+
+<pre class="code language-ruby"><code class="language-ruby">class Bogosity
+  include SilentStream # allows use of any method at instance or class level
+
+  def silent
+    silence_all(true) do
+      puts &quot;play that funky music&quot;
+      Rails.logger.info(&quot;git jiggy with it&quot;)
+    end
+  end
+  class &lt;&lt; self
+    def noise
+      silence_all(false) do
+        puts &quot;play that funky music&quot;
+        Rails.logger.info(&quot;git jiggy with it&quot;)
+      end
+    end
+  end
+end
+</code></pre>
+
+<p>And run</p>
+
+<pre class="code ruby"><code class="ruby">&gt;&gt; Bogosity.new.silent # has no output
+=&gt; nil
+&gt;&gt; Bogosity.noise # is noisy
+play that funky music
+=&gt; nil
+</code></pre>
+
+<h3 id="use-in-specs--tests">Use in Specs / Tests</h3>
+
+<p>Make the methods avaialble:</p>
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conf'>conf</span><span class='op'>|</span>
+  <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="SilentStream.html" title="SilentStream (module)">SilentStream</a></span></span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Then add a test on output:</p>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>has output</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_output'>output</span> <span class='op'>=</span> <span class='id identifier rubyid_capture'>capture</span><span class='lparen'>(</span><span class='symbol'>:stdout</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_subject'>subject</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span><span class='lparen'>(</span><span class='symbol'>:get</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/success</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_logs'>logs</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INFO -- request: GET https://api.example.com/success</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INFO -- response: Status 200</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='rbracket'>]</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span><span class='lparen'>(</span><span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_logs'>logs</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>See it in practice in the specs for the <a href="https://github.com/oauth-xx/oauth2/blob/master/spec/oauth2/client_spec.rb#L193">oauth2 gem</a> and the <a href="https://github.com/pboling/debug_logging/blob/master/spec/debug_logging/instance_logger_spec.rb#L10">debug_logging gem</a></p>
+
+<h3 id="migrate-from-activesupporttestingstream-or-remove-activesupport-completely-in-your-ruby-library">Migrate from ActiveSupport::Testing::Stream, or remove ActiveSupport completely, in your ruby library!</h3>
+
+<p>For most scenarios, simple. Change three lines.  Here’s an example from a gem I just converted from ActiveSupport to SilentStream (<a href="https://github.com/pboling/debug_logging/commit/d0cd109e1509084bbcf753be39f2173f0e2878a7">see commit</a>)</p>
+
+<p><code>gemspec</code> diff:</p>
+<pre class="code ruby"><code class="ruby">-spec.add_development_dependency &#39;activesupport&#39;, &#39;&gt;= 5&#39;
++spec.add_development_dependency &#39;silent_stream&#39;, &#39;&gt;= 1&#39;
+</code></pre>
+
+<p><code>spec_helper.rb</code> diff:</p>
+<pre class="code ruby"><code class="ruby">-require &#39;active_support/testing/stream&#39;
++require &#39;silent_stream&#39;
+
+RSpec.configure do |config|
+-  config.include ActiveSupport::Testing::Stream
++  config.include SilentStream
+</code></pre>
+
+<p>Run spec suite to verify everything is good.  This gem is as close as can be to a drop-in replacement for Rails’ <code>ActiveSupport::Testing::Stream</code>.</p>
+
+<h3 id="-release-instructions">🚀 Release Instructions</h3>
+
+<p>See <a href="file.CONTRIBUTING.html" title="CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+
+<h2 id="-security">🔐 Security</h2>
+
+<p>See <a href="file.SECURITY.html" title="SECURITY.md">SECURITY.md</a>.</p>
+
+<h2 id="-contributing">🤝 Contributing</h2>
+
+<p>If you need some ideas of where to help, you could work on adding more code coverage,<br>
+or if it is already 💯 (see <a href="#code-coverage">below</a>) check TODOs (see <a href="#todos">below</a>),<br>
+or check <a href="https://github.com/pboling/silent_stream/issues">issues</a>, or <a href="https://github.com/pboling/silent_stream/pulls">PRs</a>,<br>
+or use the gem and think about how it could be better.</p>
+
+<p>We <a href="https://keepachangelog.com/en/1.0.0/"><img src="https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat" alt="Keep A Changelog"></a> so if you make changes, remember to update it.</p>
+
+<p>See <a href="file.CONTRIBUTING.html" title="CONTRIBUTING.md">CONTRIBUTING.md</a> for more detailed instructions.</p>
+
+<h3 id="code-coverage">Code Coverage</h3>
+
+<p><a href="https://codecov.io/gh/pboling/silent_stream"><img src="https://codecov.io/gh/pboling/silent_stream/graphs/tree.svg?token=Ad3ets1psE" alt="Coverage Graph"></a></p>
+
+<h3 id="-code-of-conduct">🪇 Code of Conduct</h3>
+
+<p>Everyone interacting in this project’s codebases, issue trackers,<br>
+chat rooms and mailing lists is expected to follow the <a href="file.CODE_OF_CONDUCT.html" title="&lt;img src=&quot;https://img.shields.io/badge/Contributor_Covenant-2.1-4baaaa.svg&quot; alt=&quot;Contributor Covenant 2.1&quot;&gt;"><img src="https://img.shields.io/badge/Contributor_Covenant-2.1-4baaaa.svg" alt="Contributor Covenant 2.1"></a>.</p>
+
+<h2 id="-contributors">🌈 Contributors</h2>
+
+<p><a href="https://github.com/pboling/silent_stream/graphs/contributors"><img src="https://contrib.rocks/image?repo=pboling/silent_stream" alt="Contributors"></a></p>
+
+<p>Made with <a href="https://contrib.rocks">contributors-img</a>.</p>
+
+<p>Also see GitLab Contributors: <a href="https://gitlab.com/pboling/silent_stream/-/graphs/master">https://gitlab.com/pboling/silent_stream/-/graphs/master</a></p>
+
+<h2 id="️-star-history">⭐️ Star History</h2>
+
+<p><a href="https://star-history.com/#pboling/silent_stream&amp;Date"></a></p>
+<picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=pboling/silent_stream&amp;type=Date&amp;theme=dark"></source>
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=pboling/silent_stream&amp;type=Date"></source>
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=pboling/silent_stream&amp;type=Date">
+ </picture>
+<p>&lt;/a&gt;</p>
+
+<h2 id="-versioning">📌 Versioning</h2>
+
+<p>This Library adheres to <a href="https://semver.org/spec/v2.0.0.html"><img src="https://img.shields.io/badge/semver-2.0.0-FFDD67.svg?style=flat" alt="Semantic Versioning 2.0.0"></a>.<br>
+Violations of this scheme should be reported as bugs.<br>
+Specifically, if a minor or patch version is released that breaks backward compatibility,<br>
+a new version should be immediately released that restores compatibility.<br>
+Breaking changes to the public API will only be introduced with new major versions.</p>
+
+<h3 id="-is-platform-support-part-of-the-public-api">📌 Is “Platform Support” part of the public API?</h3>
+
+<p>Yes.  But I’m obligated to include notes…</p>
+
+<p>SemVer should, but doesn’t explicitly, say that dropping support for specific Platforms<br>
+is a <em>breaking change</em> to an API.<br>
+It is obvious to many, but not all, and since the spec is silent, the bike shedding is endless.</p>
+
+<blockquote>
+  <p>dropping support for a platform is both obviously and objectively a breaking change</p>
+</blockquote>
+
+<ul>
+  <li>Jordan Harband (@ljharb, maintainer of SemVer) <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">in SemVer issue 716</a>
+</li>
+</ul>
+
+<p>To get a better understanding of how SemVer is intended to work over a project’s lifetime,<br>
+read this article from the creator of SemVer:</p>
+
+<ul>
+  <li><a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">“Major Version Numbers are Not Sacred”</a></li>
+</ul>
+
+<p>As a result of this policy, and the interpretive lens used by the maintainer,<br>
+you can (and should) specify a dependency on these libraries using<br>
+the <a href="http://guides.rubygems.org/patterns/#pessimistic-version-constraint">Pessimistic Version Constraint</a> with two digits of precision.</p>
+
+<p>For example:</p>
+
+<pre class="code language-ruby"><code class="language-ruby">spec.add_dependency(&quot;silent_stream&quot;, &quot;~&gt; 1.0&quot;)
+</code></pre>
+
+<p>See <a href="file.CHANGELOG.html" title="CHANGELOG.md">CHANGELOG.md</a> for list of releases.</p>
+
+<h2 id="-license">📄 License</h2>
+
+<p>The gem is available as open source under the terms of<br>
+the <a href="file.LICENSE.html" title="MIT License">MIT License</a> <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>.<br>
+See <a href="file.LICENSE.html" title="LICENSE.txt">LICENSE.txt</a> for the official <a href="https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year">Copyright Notice</a>.</p>
+
+<h3 id="-copyright">© Copyright</h3>
+
+<p>
+  Copyright (c) 2018 - 2020, 2024 - 2025 Peter H. Boling,
+  <a href="https://railsbling.com">
+    RailsBling.com
+    <picture>
+      <img alt="Rails Bling" height="20" src="https://railsbling.com/images/logos/RailsBling-TrainLogo.svg">
+    </picture>
+  </a>
+</p>
+
+<h2 id="-one-more-thing">🤑 One more thing</h2>
+
+<p>You made it to the bottom of the page,<br>
+so perhaps you’ll indulge me for another 20 seconds.<br>
+I maintain many dozens of gems, including this one,<br>
+because I want Ruby to be a great place for people to solve problems, big and small.<br>
+Please consider supporting my efforts via the giant yellow link below,<br>
+or one of the others at the head of this README.</p>
+
+<p><a href="https://www.buymeacoffee.com/pboling"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20latte&amp;emoji=&amp;slug=pboling&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" alt="Buy me a latte"></a></p>
+
+</div></div>
+
+      <div id="footer">
+  Generated on Sat Jun  7 16:23:42 2025 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.37 (ruby-3.4.2).
+</div>
+
+    </div>
+  </body>
+</html>
