@@ -120,6 +120,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency("version_gem", ">= 1.1.8", "< 3")   # Ruby >= 2.2
 
   # Development dependencies
+  spec.add_development_dependency("appraisal2", "~> 3.0")               # ruby >= 1.8.7
   spec.add_development_dependency("minitest", ">= 5.15")                # ruby >= 2.2, later releases are ruby >= 2.6+
   spec.add_development_dependency("minitest-reporters")
   spec.add_development_dependency("mocha")
