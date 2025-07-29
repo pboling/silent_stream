@@ -1,5 +1,10 @@
 name: Test Coverage
 
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+
 env:
   K_SOUP_COV_MIN_BRANCH: 30
   K_SOUP_COV_MIN_LINE: 88
@@ -20,10 +25,6 @@ on:
       - '*'
   # Allow manually triggering the workflow.
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pull-requests: write
 
 # Cancels all previous workflow runs for the same branch that have not yet completed.
 concurrency:
