@@ -48,7 +48,7 @@ Gem::Specification.new do |spec|
   spec.name = "silent_stream"
   spec.version = gem_version
   spec.authors = authors.map { |_gh, name| name }
-  spec.email = ["peter.boling@gmail.com"]
+  spec.email = ["floss@galtzo.com"]
 
   # Linux distros may package ruby gems differently,
   #   and securely certify them independently via alternate package management systems.
