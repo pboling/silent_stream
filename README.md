@@ -78,13 +78,13 @@ by following the instructions below.
 
 Add my public key (if you haven’t already, expires 2045-04-29) as a trusted certificate:
 
-```shell
+```console
 gem cert --add <(curl -Ls https://raw.github.com/pboling/silent_stream/master/certs/pboling.pem)
 ```
 
 You only need to do that once.  Then proceed to install with:
 
-```shell
+```console
 gem install silent_stream -P MediumSecurity
 ```
 
@@ -94,7 +94,7 @@ This is necessary because not all of `silent_stream`’s dependencies are signed
 
 If you want to up your security game full-time:
 
-```shell
+```console
 bundle config set --global trust-policy MediumSecurity
 ```
 
