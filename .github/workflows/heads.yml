@@ -52,6 +52,7 @@ jobs:
             gemfile: "Appraisal.root"
             rubygems: default
             bundler: default
+            experimental: true
 
           # jruby-head
           - ruby: "jruby-head"
