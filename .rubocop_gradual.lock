@@ -11,7 +11,7 @@
     [144, 22, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
     [145, 24, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
   ],
-  "silent_stream.gemspec:3276879006": [
+  "silent_stream.gemspec:2355656976": [
     [4, 6, 12, "Gemspec/RubyVersionGlobalsUsage: Do not use `RUBY_VERSION` in gemspec file.", 31296028]
   ],
   "tests/test_silent_stream.rb:2724322978": [
