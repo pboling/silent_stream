@@ -11,10 +11,8 @@
     [144, 22, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
     [145, 24, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
   ],
-  "silent_stream.gemspec:128601490": [
-    [4, 6, 12, "Gemspec/RubyVersionGlobalsUsage: Do not use `RUBY_VERSION` in gemspec file.", 31296028],
-    [125, 3, 53, "Gemspec/DependencyVersion: Dependency version specification is required.", 2976601152],
-    [126, 3, 40, "Gemspec/DependencyVersion: Dependency version specification is required.", 2300588954]
+  "silent_stream.gemspec:3276879006": [
+    [4, 6, 12, "Gemspec/RubyVersionGlobalsUsage: Do not use `RUBY_VERSION` in gemspec file.", 31296028]
   ],
   "tests/test_silent_stream.rb:2724322978": [
     [38, 19, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
