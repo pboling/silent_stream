@@ -1,11 +1,11 @@
-<p align="center">
-  <a href="https://discord.gg/3qme4XHNKN" target="_blank" rel="noopener">
-    <img width="120px" src="https://github.com/galtzo-floss/shields-badge/raw/main/docs/images/logo/galtzo-floss-logos-original.svg?raw=true" alt="Galtzo.com Logo by Aboling0, CC BY-SA 4.0">
-  </a>
-  <a href="https://www.ruby-lang.org/" target="_blank" rel="noopener">
-    <img width="120px" src="https://github.com/galtzo-floss/shields-badge/raw/main/docs/images/logo/ruby-logo-198px.svg?raw=true" alt="Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5">
-  </a>
-</p>
+[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-i]][🖼️galtzo-discord] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![silent_stream Logo by Aboling0, CC BY-SA 4.0][🖼️silent_stream-i]][🖼️silent_stream]
+
+[🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
+[🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
+[🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
+[🖼️ruby-lang]: https://github.com/ruby-lang
+[🖼️silent_stream-i]: https://logos.galtzo.com/assets/images/galtzo-floss/silent_stream/avatar-192px.svg
+[🖼️silent_stream]: https://github.com/galtzo-floss/silent_stream
 
 # 🪶 SilentStream
 
