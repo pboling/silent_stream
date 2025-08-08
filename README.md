@@ -189,9 +189,16 @@ RSpec.configure do |config|
 
 Run spec suite to verify everything is good.  This gem is as close as can be to a drop-in replacement for Rails' `ActiveSupport::Testing::Stream`.
 
-### 🚀 Release Instructions
+## 🚚 Switch to `main` branch
 
-See [CONTRIBUTING.md][🤝contributing].
+We migrated from `master` to `main` as the default branch.  If this affected your local checkout:
+
+```console
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+```
 
 ## 🔐 Security
 
@@ -207,6 +214,10 @@ or use the gem and think about how it could be better.
 We [![Keep A Changelog][📗keep-changelog-img]][📗keep-changelog] so if you make changes, remember to update it.
 
 See [CONTRIBUTING.md][🤝contributing] for more detailed instructions.
+
+### 🚀 Release Instructions
+
+See [CONTRIBUTING.md][🤝contributing].
 
 ### Code Coverage
 
