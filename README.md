@@ -165,6 +165,23 @@ it "has output" do
 end
 ```
 
+#### Better use in specs
+
+```ruby
+config.include(SilentStream)
+
+  # Silence STDOUT for examples NOT tagged with :check_output
+config.around(:example) do |example|
+  if example.metadata[:check_output]
+    example.run
+  else
+    silence_stream($stdout) do
+      example.run
+    end
+  end
+end
+```
+
 See it in practice in the specs for the [oauth2 gem](https://github.com/oauth-xx/oauth2/blob/master/spec/oauth2/client_spec.rb#L193) and the [debug_logging gem](https://github.com/pboling/debug_logging/blob/master/spec/debug_logging/instance_logger_spec.rb#L10)
 
 ### Migrate from ActiveSupport::Testing::Stream, or remove ActiveSupport completely, in your ruby library!

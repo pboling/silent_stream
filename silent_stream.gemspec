@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 gem_version =
-  if RUBY_VERSION >= "3.1"
+  if RUBY_VERSION >= "3.1" # rubocop:disable Gemspec/RubyVersionGlobalsUsage
     # Loading version into an anonymous module allows version.rb to get code coverage from SimpleCov!
     # See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-2630782358
     Module.new.tap { |mod| Kernel.load("lib/silent_stream/version.rb", mod) }::SilentStream::Version::VERSION

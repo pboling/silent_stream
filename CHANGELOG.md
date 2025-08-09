@@ -8,8 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 ### Changed
-### Fixed
+### Deprecated
 ### Removed
+### Fixed
+### Security
 
 ## [1.0.11] - 2025-05-16
 - COVERAGE:  88.06% -- 59/67 lines in 2 files
