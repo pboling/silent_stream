@@ -3,7 +3,7 @@ name: MRI 2.3, 2.4, 2.5 (EOL)
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     tags:
       - '!*' # Do not execute on tags
   pull_request:

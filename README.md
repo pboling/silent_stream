@@ -66,7 +66,7 @@ by following the instructions below.
 Add my public key (if you haven’t already, expires 2045-04-29) as a trusted certificate:
 
 ```console
-gem cert --add <(curl -Ls https://raw.github.com/pboling/silent_stream/master/certs/pboling.pem)
+gem cert --add <(curl -Ls https://raw.github.com/pboling/silent_stream/main/certs/pboling.pem)
 ```
 
 You only need to do that once.  Then proceed to install with:
@@ -182,7 +182,7 @@ config.around(:example) do |example|
 end
 ```
 
-See it in practice in the specs for the [oauth2 gem](https://github.com/oauth-xx/oauth2/blob/master/spec/oauth2/client_spec.rb#L193) and the [debug_logging gem](https://github.com/pboling/debug_logging/blob/master/spec/debug_logging/instance_logger_spec.rb#L10)
+See it in practice in the specs for the [oauth2 gem](https://github.com/oauth-xx/oauth2/blob/main/spec/oauth2/client_spec.rb#L193) and the [debug_logging gem](https://github.com/pboling/debug_logging/blob/main/spec/debug_logging/instance_logger_spec.rb#L10)
 
 ### Migrate from ActiveSupport::Testing::Stream, or remove ActiveSupport completely, in your ruby library!
 
@@ -253,7 +253,7 @@ chat rooms and mailing lists is expected to follow the [![Contributor Covenant 2
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/pboling/silent_stream/-/graphs/master][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/pboling/silent_stream/-/graphs/main][🚎contributors-gl]
 
 ## ⭐️ Star History
 
@@ -413,9 +413,9 @@ P.S. If you need help️, or want to say thanks, 👇 Join the Discord.
 [🔑qlty-cov]: https://qlty.sh/gh/pboling/projects/silent_stream/metrics/code?sort=coverageRating
 [🔑qlty-covi]: https://qlty.sh/gh/pboling/projects/silent_stream/coverage.svg
 [🔑codecov]: https://codecov.io/gh/pboling/silent_stream
-[🔑codecovi♻️]: https://codecov.io/gh/pboling/silent_stream/branch/master/graph/badge.svg?token=Ad3ets1psE
-[🔑coveralls]: https://coveralls.io/github/pboling/silent_stream?branch=master
-[🔑coveralls-img]: https://coveralls.io/repos/github/pboling/silent_stream/badge.svg?branch=master
+[🔑codecovi♻️]: https://codecov.io/gh/pboling/silent_stream/branch/main/graph/badge.svg?token=Ad3ets1psE
+[🔑coveralls]: https://coveralls.io/github/pboling/silent_stream?branch=main
+[🔑coveralls-img]: https://coveralls.io/repos/github/pboling/silent_stream/badge.svg?branch=main
 [🔑depfu]: https://depfu.com/github/pboling/silent_stream?project_id=5828
 [🔑depfui♻️]: https://badges.depfu.com/badges/6633827ecc1ad3b5dd749b4ac822347b/count.svg
 [🖐codeQL]: https://github.com/pboling/silent_stream/security/code-scanning
@@ -482,7 +482,7 @@ P.S. If you need help️, or want to say thanks, 👇 Join the Discord.
 [🖐contrib-rocks]: https://contrib.rocks
 [🖐contributors]: https://github.com/pboling/silent_stream/graphs/contributors
 [🖐contributors-img]: https://contrib.rocks/image?repo=pboling/silent_stream
-[🚎contributors-gl]: https://gitlab.com/pboling/silent_stream/-/graphs/master
+[🚎contributors-gl]: https://gitlab.com/pboling/silent_stream/-/graphs/main
 [🪇conduct]: CODE_OF_CONDUCT.md
 [🪇conduct-img]: https://img.shields.io/badge/Contributor_Covenant-2.1-259D6C.svg
 [📌pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
