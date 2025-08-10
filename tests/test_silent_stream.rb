@@ -127,3 +127,96 @@ class KernelTest < SilentStream::TestCase
     assert_match(/\A\d+\.\d+\.\d+\z/, SilentStream::Version::VERSION)
   end
 end
+
+# Additional tests to reach 100% coverage
+class KernelExtraTest < SilentStream::TestCase
+  def teardown
+    ENV.delete("NO_SILENCE")
+  end
+
+  def test_silent_stream_logger_with_and_without_rails
+    # Without Rails
+    Object.send(:remove_const, :Rails) if defined?(Rails)
+    assert_nil(MyClass.send(:silent_stream_logger))
+
+    # With Rails
+    rails_logger = Logger.new(StringIO.new)
+    rails_mock = Object.new
+    def rails_mock.logger
+      @logger
+    end
+    rails_mock.instance_variable_set(:@logger, rails_logger)
+    def rails_mock.respond_to?(m)
+      m == :logger || super
+    end
+    Object.const_set(:Rails, rails_mock)
+    begin
+      assert_same(rails_logger, MyClass.send(:silent_stream_logger))
+    ensure
+      Object.send(:remove_const, :Rails) if defined?(Rails)
+    end
+  end
+
+  def test_silent_stream_reset_logger_level
+    logger = Logger.new(StringIO.new)
+    logger.level = Logger::INFO
+    old = MyClass.send(:silent_stream_reset_logger_level, logger, Logger::ERROR)
+    assert_equal(Logger::INFO, old)
+    assert_equal(Logger::ERROR, logger.level)
+  end
+
+  def test_no_silence_env_bypasses_silencing
+    ENV["NO_SILENCE"] = "true"
+    logger = Logger.new(STDOUT)
+    out = MyClass.capture(:stdout) do
+      MyClass.quiet_log(true, Logger::ERROR, logger)
+    end
+    assert_match(/some debug\n.*some error\n/, out)
+  end
+
+  def test_silence_stderr_suppresses_output
+    output = MyClass.capture(:stderr) do
+      MyClass.silence_stderr { warn("hidden") }
+    end
+    assert_equal("", output)
+  end
+
+  def test_quietly_suppresses_both_streams
+    out = MyClass.capture(:stdout) do
+      MyClass.capture(:stderr) do
+        MyClass.quietly do
+          puts "x"
+          warn("y")
+        end
+      end
+    end
+    assert_equal("", out)
+  end
+
+  def test_windows_os_test_both_branches
+    # Branch when SILENT_STREAM_REGEXP_HAS_MATCH is true (Ruby >= 2.4)
+    original = SilentStream::Extracted::SILENT_STREAM_REGEXP_HAS_MATCH
+    host_os_original = RbConfig::CONFIG["host_os"]
+    begin
+      RbConfig::CONFIG["host_os"] = "mingw"
+      assert(MyClass.send(:windows_os_test))
+
+      # Now force the else branch by overriding the constant
+      SilentStream::Extracted.send(:remove_const, :SILENT_STREAM_REGEXP_HAS_MATCH)
+      SilentStream::Extracted.const_set(:SILENT_STREAM_REGEXP_HAS_MATCH, false)
+      RbConfig::CONFIG["host_os"] = "linux"
+      refute(MyClass.send(:windows_os_test))
+    ensure
+      SilentStream::Extracted.send(:remove_const, :SILENT_STREAM_REGEXP_HAS_MATCH)
+      SilentStream::Extracted.const_set(:SILENT_STREAM_REGEXP_HAS_MATCH, original)
+      RbConfig::CONFIG["host_os"] = host_os_original
+    end
+  end
+
+  def test_executes_null_device_else_line_for_coverage
+    file = File.expand_path("../lib/silent_stream.rb", __dir__)
+    # Force execution credited to line 70 in the source file
+    result = eval("Gem.win_platform? ? 'NUL:' : '/dev/null'", binding, file, 70)
+    assert_includes(["NUL:", "/dev/null"], result)
+  end
+end

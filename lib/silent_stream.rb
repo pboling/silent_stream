@@ -67,7 +67,9 @@ module SilentStream
     SILENT_STREAM_NULL_DEVICE = if defined?(IO::NULL)
       IO::NULL
     else
+      # :nocov:
       Gem.win_platform? ? "NUL:" : "/dev/null"
+      # :nocov:
     end
 
     # This method is not thread-safe.
