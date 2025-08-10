@@ -3,7 +3,7 @@
 [🖼️galtzo-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-192px.svg
 [🖼️galtzo-discord]: https://discord.gg/3qme4XHNKN
 [🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-192px.svg
-[🖼️ruby-lang]: https://github.com/ruby-lang
+[🖼️ruby-lang]: https://www.ruby-lang.org/
 [🖼️silent_stream-i]: https://logos.galtzo.com/assets/images/galtzo-floss/silent_stream/avatar-192px.svg
 [🖼️silent_stream]: https://github.com/galtzo-floss/silent_stream
 
