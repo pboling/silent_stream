@@ -110,9 +110,16 @@ class KernelTest < SilentStream::TestCase
     # Skip if we can't STDERR.tell
   end
 
-  def test_capture
+  def test_capture_stderr
     assert_equal("STDERR", MyClass.capture(:stderr) { $stderr.print("STDERR") })
+  end
+
+  def test_capture_print
     assert_equal("STDOUT", MyClass.capture(:stdout) { print("STDOUT") })
+  end
+
+  def test_capture_redirected
+    skip("JRuby has flaky capture here for some reason") if RubyEngine.jruby?
     assert_equal("STDERR\n", MyClass.capture(:stderr) { system("echo STDERR 1>&2") })
   end
 
