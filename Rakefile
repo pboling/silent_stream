@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-🔨 Galtzo FLOSS Rakefile v1.0.0
+
 # Galtzo FLOSS Rakefile v1.0 - 2025-08-12
 #
 # MIT License (see License.txt)
