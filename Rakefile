@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Galtzo FLOSS Rakefile v1.0.1 - 2025-08-12
+# Galtzo FLOSS Rakefile v1.0.2 - 2025-08-12
 #
 # MIT License (see License.txt)
 #
@@ -100,16 +100,18 @@ rescue LoadError
   end
 end
 
-if Rake::Task.task_defined?('spec') && !Rake::Task.task_defined?('test')
+# rubocop:disable Rake/DuplicateTask
+if Rake::Task.task_defined?("spec") && !Rake::Task.task_defined?("test")
   desc "run spec task with test task"
   task test: :spec
-elsif !Rake::Task.task_defined?('spec') && Rake::Task.task_defined?('test')
+elsif !Rake::Task.task_defined?("spec") && Rake::Task.task_defined?("test")
   desc "run test task with spec task"
   task spec: :test
 else
   # Add spec as pre-requisite to 'test'
-  Rake::Task[:test].enhance(['spec'])
+  Rake::Task[:test].enhance(["spec"])
 end
+# rubocop:enable Rake/DuplicateTask
 
 # Setup RuboCop-LTS
 begin
