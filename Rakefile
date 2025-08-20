@@ -348,10 +348,10 @@ namespace :ci do
 
     # Determine actual workflow files present, and prepare dynamic additions excluding specified files.
     existing_files = if Dir.exist?(workflows_dir)
-                       Dir[File.join(workflows_dir, "*.yml")] + Dir[File.join(workflows_dir, "*.yaml")]
-                     else
-                       []
-                     end
+      Dir[File.join(workflows_dir, "*.yml")] + Dir[File.join(workflows_dir, "*.yaml")]
+    else
+      []
+    end
     existing_basenames = existing_files.map { |p| File.basename(p) }
 
     # Reduce mapping choices to only those with a corresponding workflow file
@@ -455,11 +455,11 @@ namespace :ci do
         st = run["status"]
         con = run["conclusion"]
         emoji = case st
-                when "queued" then "⏳️"
-                when "in_progress" then "👟"
-                when "completed" then ((con == "success") ? "✅" : "🍅")
-                else "⏳️"
-                end
+        when "queued" then "⏳️"
+        when "in_progress" then "👟"
+        when "completed" then ((con == "success") ? "✅" : "🍅")
+        else "⏳️"
+        end
         details = [st, con].compact.join("/")
         [c, f, "#{emoji} (#{details})#{append}"]
       else
@@ -470,22 +470,22 @@ namespace :ci do
     if choice && !choice.empty?
       # If user passed a filename directly (with or without extension), resolve it
       file = if mapping.key?(choice)
-               mapping.fetch(choice)
-             elsif /\.(yml|yaml)\z/.match?(choice)
-               # Accept either full basename (without ext) or basename with .yml/.yaml
-               choice
-             else
-               cand_yml = File.join(workflows_dir, "#{choice}.yml")
-               cand_yaml = File.join(workflows_dir, "#{choice}.yaml")
-               if File.file?(cand_yml)
-                 "#{choice}.yml"
-               elsif File.file?(cand_yaml)
-                 "#{choice}.yaml"
-               else
-                 # Fall back to .yml for error messaging; will fail below
-                 "#{choice}.yml"
-               end
-             end
+        mapping.fetch(choice)
+      elsif /\.(yml|yaml)\z/.match?(choice)
+        # Accept either full basename (without ext) or basename with .yml/.yaml
+        choice
+      else
+        cand_yml = File.join(workflows_dir, "#{choice}.yml")
+        cand_yaml = File.join(workflows_dir, "#{choice}.yaml")
+        if File.file?(cand_yml)
+          "#{choice}.yml"
+        elsif File.file?(cand_yaml)
+          "#{choice}.yaml"
+        else
+          # Fall back to .yml for error messaging; will fail below
+          "#{choice}.yml"
+        end
+      end
       file_path = File.join(workflows_dir, file)
       unless File.file?(file_path)
         puts "Unknown option or missing workflow file: #{choice} -> #{file}"
@@ -590,10 +590,10 @@ namespace :ci do
       # Check for user input first (non-blocking)
       unless input_q.empty?
         selected = begin
-                     input_q.pop(true)
-                   rescue
-                     nil
-                   end
+          input_q.pop(true)
+        rescue
+          nil
+        end
         break if selected
       end
 
