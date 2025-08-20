@@ -119,19 +119,58 @@ module SilentStream
     # This method is not thread-safe.
     def capture(stream)
       stream = stream.to_s
+      io_const = (stream == "stdout") ? STDOUT : STDERR
       captured_stream = Tempfile.new(stream)
-      stream_io = eval("$#{stream}")
-      origin_stream = stream_io.dup
-      stream_io.reopen(captured_stream)
+      # Save original global var ($stdout/$stderr) and a dup of IO constant for restoration
+      origin_gvar = (stream == "stdout") ? $stdout : $stderr
+      origin_io_dup = io_const.dup
+      begin
+        io_const.reopen(captured_stream)
+      rescue Exception => e
+        io_const.puts "[SilentStream] Unable to capture. #{e.class}: #{e.message}"
+      end
+      io_const.sync = true
+      if stream == "stdout"
+        $stdout = io_const
+      else
+        $stderr = io_const
+      end
 
       yield
 
-      stream_io.rewind
+      begin
+        io_const.flush
+      rescue Exception
+        # ignore
+      end
+      captured_stream.rewind
       captured_stream.read
     ensure
-      captured_stream.close
-      captured_stream.unlink
-      stream_io.reopen(origin_stream)
+      begin
+        io_const.reopen(origin_io_dup) if defined?(io_const) && io_const
+        origin_io_dup.close if defined?(origin_io_dup) && origin_io_dup
+      rescue Exception
+        # ignore
+      end
+      if defined?(origin_gvar)
+        if stream == "stdout"
+          $stdout = origin_gvar
+        else
+          $stderr = origin_gvar
+        end
+      end
+      if defined?(captured_stream) && captured_stream
+        begin
+          captured_stream.close
+        rescue
+          nil
+        end
+        begin
+          captured_stream.unlink
+        rescue
+          nil
+        end
+      end
     end
     # silence is provided by the LoggerSilence concern that continues to be
     # shipped with Rails, so not continuing with this alias.

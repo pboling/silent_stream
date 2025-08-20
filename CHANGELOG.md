@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 ### Removed
 ### Fixed
+-  TypeError: can't convert Tempfile into StringIO
 ### Security
 
 ## [1.0.11] - 2025-05-16
