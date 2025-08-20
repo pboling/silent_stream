@@ -2,14 +2,14 @@
   "bin/bundle:247448467": [
     [64, 5, 20, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 2485198147]
   ],
-  "lib/silent_stream.rb:2396038966": [
+  "lib/silent_stream.rb:515315959": [
     [16, 3, 165, "Style/ClassMethodsDefinitions: Use `class << self` to define a class method.", 2295567404],
     [40, 26, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
     [77, 22, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163],
     [93, 7, 102, "Lint/RescueException: Avoid rescuing the `Exception` class. Perhaps you meant to rescue `StandardError`?", 1454146794],
-    [123, 19, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
-    [146, 22, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [147, 24, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
+    [129, 7, 104, "Lint/RescueException: Avoid rescuing the `Exception` class. Perhaps you meant to rescue `StandardError`?", 2729561525],
+    [143, 7, 16, "Lint/RescueException: Avoid rescuing the `Exception` class. Perhaps you meant to rescue `StandardError`?", 2127134117],
+    [152, 7, 16, "Lint/RescueException: Avoid rescuing the `Exception` class. Perhaps you meant to rescue `StandardError`?", 2127134117]
   ],
   "tests/test_silent_stream.rb:1803870603": [
     [38, 19, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
