@@ -119,7 +119,7 @@ module SilentStream
     # This method is not thread-safe.
     def capture(stream)
       stream = stream.to_s
-      io_const = (stream == "stdout") ? STDOUT : STDERR
+      io_const = (stream == "stdout") ? STDOUT : STDERR # rubocop:disable Style/GlobalStdStream
       captured_stream = Tempfile.new(stream)
       # Save original global var ($stdout/$stderr) and a dup of IO constant for restoration
       origin_gvar = (stream == "stdout") ? $stdout : $stderr
@@ -181,11 +181,13 @@ module SilentStream
     #   quietly { system 'bundle install' }
     #
     # This method is not thread-safe.
+    # rubocop:disable Style/GlobalStdStream
     def quietly(&block)
       silence_stream(STDOUT) do
         silence_stream(STDERR, &block)
       end
     end
+    # rubocop:enable Style/GlobalStdStream
 
     private
 
