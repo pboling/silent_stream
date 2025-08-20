@@ -3,9 +3,9 @@
 #
 # Two often conflicting goals resolved!
 #
-#  - deps_unlocked.yml
+#  - unlocked_deps.yml
 #    - All runtime & dev dependencies, but does not have a `gemfiles/*.gemfile.lock` committed
-#    - Uses an Appraisal2 "deps_unlocked" gemfile, and the current MRI Ruby release
+#    - Uses an Appraisal2 "unlocked_deps" gemfile, and the current MRI Ruby release
 #    - Know when new dependency releases will break local dev with unlocked dependencies
 #    - Broken workflow indicates that new releases of dependencies may not work
 #
@@ -55,7 +55,7 @@ jobs:
         include:
           # Ruby <whichever version is current, e.g., 3.4 as of 2025-07-12>
           - ruby: "ruby"
-            appraisal_name: "deps_unlocked"
+            appraisal_name: "unlocked_deps"
             exec_cmd: "rake"
             gemfile: "Appraisal.root"
             rubygems: latest

@@ -9,9 +9,9 @@
 #
 # Two often conflicting goals resolved!
 #
-#  - deps_unlocked.yml
+#  - unlocked_deps.yml
 #    - All runtime & dev dependencies, but does not have a `gemfiles/*.gemfile.lock` committed
-#    - Uses an Appraisal2 "deps_unlocked" gemfile, and the current MRI Ruby release
+#    - Uses an Appraisal2 "unlocked_deps" gemfile, and the current MRI Ruby release
 #    - Know when new dependency releases will break local dev with unlocked dependencies
 #    - Broken workflow indicates that new releases of dependencies may not work
 #
@@ -21,7 +21,7 @@
 #    - Matches what contributors and maintainers use locally for development
 #    - Broken workflow indicates that a new contributor will have a bad time
 #
-appraise "deps_unlocked" do
+appraise "unlocked_deps" do
   eval_gemfile("modular/audit.gemfile")
   eval_gemfile("modular/coverage.gemfile")
   eval_gemfile("modular/documentation.gemfile")
