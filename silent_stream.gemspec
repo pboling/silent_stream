@@ -141,19 +141,20 @@ Gem::Specification.new do |spec|
   #       Development dependencies that require strictly newer Ruby versions should be in a "gemfile",
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
-  # Development dependencies
+  # Release Tasks
+  spec.add_development_dependency("stone_checksums", "~> 1.0")                # ruby >= 2.2.0
+
+  ### Testing
   spec.add_development_dependency("appraisal2", "~> 3.0")                     # ruby >= 1.8.7
   spec.add_development_dependency("minitest", ">= 5.15")                      # ruby >= 2.2, later releases are ruby >= 2.6+
   spec.add_development_dependency("minitest-reporters", "~> 1.7", ">= 1.7.1") # ruby >= 1.9.3
   spec.add_development_dependency("mocha", "~> 2.7", ">= 2.7.1")              # ruby >= 2.1
-  spec.add_development_dependency("rake", "~> 13.0")                          # ruby >= 2.2
   spec.add_development_dependency("ruby_engine", "~> 2.0", ">= 2.0.3")        # ruby >= 0
   spec.add_development_dependency("ruby_version", "~> 1.0", ">= 1.0.3")       # ruby >= 0
-  spec.add_development_dependency("stone_checksums", "~> 1.0")                # ruby >= 2.2
   spec.add_development_dependency("test-unit", ">= 3.7")                      # ruby >= 0
-  # Linting - rubocop-lts v10 is a rubocop wrapper for Ruby >= 2.3,
-  #   and should only be bumped when dropping old Ruby support
-  # NOTE: it can only be installed on, and run on Ruby >= 2.7, so we add the dependency in the Gemfile.
-  # see: https://rubocop-lts.gitlab.io
-  # spec.add_development_dependency 'rubocop-lts', ['~> 10.0']
+
+  # Development tasks
+  spec.add_development_dependency("erb", ">= 2.2")                            # ruby >= 2.3.0, not SemVer, old rubies get dropped in a patch.
+  spec.add_development_dependency("gitmoji-regex", "~> 1.0", ">= 1.0.3")      # ruby >= 2.3.0
+  spec.add_development_dependency("rake", "~> 13.0")                          # ruby >= 2.2
 end
