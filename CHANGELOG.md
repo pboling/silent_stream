@@ -62,13 +62,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2018-09-23
 
-[Unreleased]: https://gitlab.com/pboling/silent_stream/-/compare/v1.0.10...HEAD
-[1.0.10]: https://gitlab.com/pboling/silent_stream/-/compare/v1.0.9...v1.0.10
-[1.0.9]: https://gitlab.com/pboling/silent_stream/-/compare/v1.0.8...v1.0.9
-[1.0.8]: https://gitlab.com/pboling/silent_stream/-/compare/v1.0.7...v1.0.8
-[1.0.7]: https://gitlab.com/pboling/silent_stream/-/compare/v1.0.5...v1.0.7
+[Unreleased]: https://gitlab.com/galtzo-floss/silent_stream-/compare/v1.0.10...HEAD
+[1.0.10]: https://gitlab.com/galtzo-floss/silent_stream-/compare/v1.0.9...v1.0.10
+[1.0.9]: https://gitlab.com/galtzo-floss/silent_stream-/compare/v1.0.8...v1.0.9
+[1.0.8]: https://gitlab.com/galtzo-floss/silent_stream-/compare/v1.0.7...v1.0.8
+[1.0.7]: https://gitlab.com/galtzo-floss/silent_stream-/compare/v1.0.5...v1.0.7
 [1.0.6]: https://rubygems.org/gems/silent_stream/versions/1.0.6
-[1.0.5]: https://gitlab.com/pboling/silent_stream/-/tags/v1.0.5
+[1.0.5]: https://gitlab.com/galtzo-floss/silent_stream-/tags/v1.0.5
 [1.0.4]: https://rubygems.org/gems/silent_stream/versions/1.0.4
 [1.0.3]: https://rubygems.org/gems/silent_stream/versions/1.0.3
 [1.0.2]: https://rubygems.org/gems/silent_stream/versions/1.0.2

@@ -28,9 +28,7 @@ From time to time the Appraisal2 gemfiles in `gemfiles/` will need to be updated
 They are created and updated with the commands:
 
 ```console
-BUNDLE_GEMFILE=Appraisal.root.gemfile bundle
-BUNDLE_GEMFILE=Appraisal.root.gemfile bundle exec appraisal update
-bundle exec rake rubocop_gradual:autocorrect
+bin/rake appraisal:update
 ```
 
 When adding an appraisal to CI check the [runner tool cache][🏃‍♂️runner-tool-cache] to see which runner to use.
@@ -67,6 +65,19 @@ Or just run the linter.
 bundle exec rake rubocop_gradual:autocorrect
 ```
 
+For more detailed information about using RuboCop in this project, please see the [RUBOCOP.md](RUBOCOP.md) guide. This project uses `rubocop_gradual` instead of vanilla RuboCop, which requires specific commands for checking violations.
+
+### Important: Do not add inline RuboCop disables
+
+Never add `# rubocop:disable ...` / `# rubocop:enable ...` comments to code or specs (except when following the few existing `rubocop:disable` patterns for a rule already being disabled elsewhere in the code). Instead:
+
+- Prefer configuration-based exclusions when a rule should not apply to certain paths or files (e.g., via `.rubocop.yml`).
+- When a violation is temporary and you plan to fix it later, record it in `.rubocop_gradual.lock` using the gradual workflow:
+  - `bundle exec rake rubocop_gradual:autocorrect` (preferred)
+  - `bundle exec rake rubocop_gradual:force_update` (only when you cannot fix the violations immediately)
+
+As a general rule, fix style issues rather than ignoring them. For example, our specs should follow RSpec conventions like using `described_class` for the class under test.
+
 ## Contributors
 
 Your picture could be here!
@@ -75,7 +86,7 @@ Your picture could be here!
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/pboling/silent_stream/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/silent_stream/-/graphs/main][🚎contributors-gl]
 
 ## For Maintainers
 
@@ -113,18 +124,18 @@ NOTE: To build without signing the gem you must set `SKIP_GEM_SIGNING` to some v
 12. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to [rubygems.org][💎rubygems]
 
-[🚎src-main]: https://gitlab.com/pboling/silent_stream
-[🧪build]: https://github.com/pboling/silent_stream/actions
-[🤝conduct]: https://gitlab.com/pboling/silent_stream/-/blob/main/CODE_OF_CONDUCT.md
+[🚎src-main]: https://gitlab.com/galtzo-floss/silent_stream
+[🧪build]: https://github.com/galtzo-floss/silent_stream/actions
+[🤝conduct]: https://gitlab.com/galtzo-floss/silent_stream/-/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
-[🖐contributors]: https://github.com/pboling/silent_stream/graphs/contributors
-[🚎contributors-gl]: https://gitlab.com/pboling/silent_stream/-/graphs/main
-[🖐contributors-img]: https://contrib.rocks/image?repo=pboling/silent_stream
+[🖐contributors]: https://github.com/galtzo-floss/silent_stream/graphs/contributors
+[🚎contributors-gl]: https://gitlab.com/galtzo-floss/silent_stream/-/graphs/main
+[🖐contributors-img]: https://contrib.rocks/image?repo=galtzo-floss/silent_stream
 [💎rubygems]: https://rubygems.org
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
 [🔒️rubygems-checksums-pr]: https://github.com/rubygems/rubygems/pull/6022
 [🔒️rubygems-guides-pr]: https://github.com/rubygems/guides/pull/325
-[💎stone_checksums]: https://github.com/pboling/stone_checksums
+[💎stone_checksums]: https://github.com/galtzo-floss/stone_checksums
 [📗keep-changelog]: https://keepachangelog.com/en/1.0.0/
 [📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-FFDD67.svg?style=flat
 [📌semver-breaking]: https://github.com/semver/semver/issues/716#issuecomment-869336139
