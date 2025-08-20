@@ -68,8 +68,8 @@ Gem::Specification.new do |spec|
     end
   end
 
-  spec.summary = "ActiveSupport's Stream Silencing - Without ActiveSupport"
-  spec.description = "ActiveSupport Kernel Reporting Detritus with a few enhancements"
+  spec.summary = "🔕 (formerly) ActiveSupport's Stream Silencing - Without ActiveSupport"
+  spec.description = "🔕 (formerly) ActiveSupport Kernel Reporting Detritus with a few enhancements"
   spec.homepage = "https://github.com/pboling/#{spec.name}"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.3"
