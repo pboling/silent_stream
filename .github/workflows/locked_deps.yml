@@ -9,7 +9,7 @@
 #    - Know when new dependency releases will break local dev with unlocked dependencies
 #    - Broken workflow indicates that new releases of dependencies may not work
 #
-#  - deps_locked.yml
+#  - locked_deps.yml
 #    - All runtime & dev dependencies, and has a `Gemfile.lock` committed
 #    - Uses the project's main Gemfile, and the current MRI Ruby release
 #    - Matches what contributors and maintainers use locally for development

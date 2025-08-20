@@ -482,8 +482,8 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [🚎10-j-wfi]: https://github.com/galtzo-floss/silent_stream/actions/workflows/jruby.yml/badge.svg
 [🚎11-c-wf]: https://github.com/galtzo-floss/silent_stream/actions/workflows/current.yml
 [🚎11-c-wfi]: https://github.com/galtzo-floss/silent_stream/actions/workflows/current.yml/badge.svg
-[🚎13-🔒️-wf]: https://github.com/galtzo-floss/silent_stream/actions/workflows/deps_locked.yml
-[🚎13-🔒️-wfi]: https://github.com/galtzo-floss/silent_stream/actions/workflows/deps_locked.yml/badge.svg
+[🚎13-🔒️-wf]: https://github.com/galtzo-floss/silent_stream/actions/workflows/locked_deps.yml
+[🚎13-🔒️-wfi]: https://github.com/galtzo-floss/silent_stream/actions/workflows/locked_deps.yml/badge.svg
 [🚎14-🔓️-wf]: https://github.com/galtzo-floss/silent_stream/actions/workflows/deps_unlocked.yml
 [🚎14-🔓️-wfi]: https://github.com/galtzo-floss/silent_stream/actions/workflows/deps_unlocked.yml/badge.svg
 [💎ruby-2.3i]: https://img.shields.io/badge/Ruby-2.3-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
