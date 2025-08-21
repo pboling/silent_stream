@@ -57,7 +57,7 @@ The reason for not keeping `silence` as it was in Rails 4, i.e. an alias of `cap
 
 [gh-discussions]: https://github.com/galtzo-floss/silent_stream/discussions
 
-### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/timecop-rspec)](https://tidelift.com/subscription/pkg/rubygems-timecop-rspec?utm_source=rubygems-timecop-rspec&utm_medium=referral&utm_campaign=readme)
+### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/silent_stream)](https://tidelift.com/subscription/pkg/rubygems-silent_stream?utm_source=rubygems-silent_stream&utm_medium=referral&utm_campaign=readme)
 
 <details>
   <summary>Need enterprise-level guarantees?</summary>
@@ -319,11 +319,11 @@ Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/silent_stream/-/g
 <details>
     <summary>⭐️ Star History</summary>
 
-<a href="https://star-history.com/#galtzo-floss/timecop-rspec&Date">
+<a href="https://star-history.com/#galtzo-floss/silent_stream&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/timecop-rspec&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/timecop-rspec&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/timecop-rspec&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/silent_stream&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/silent_stream&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/silent_stream&type=Date" />
  </picture>
 </a>
 
