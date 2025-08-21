@@ -2,12 +2,12 @@
   "bin/bundle:247448467": [
     [64, 5, 20, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 2485198147]
   ],
-  "lib/silent_stream.rb:1830204343": [
+  "lib/silent_stream.rb:1659828982": [
     [16, 3, 165, "Style/ClassMethodsDefinitions: Use `class << self` to define a class method.", 2295567404],
     [40, 26, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
-    [77, 22, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
+    [79, 22, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163]
   ],
-  "tests/test_silent_stream.rb:1803870603": [
+  "tests/test_silent_stream.rb:3307440395": [
     [38, 19, 4, "Security/Eval: The use of `eval` is a serious security risk.", 2087429787],
     [72, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
     [79, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
@@ -21,5 +21,11 @@
     [108, 39, 6, "Style/GlobalStdStream: Use `$stderr` instead of `STDERR`.", 3356712163],
     [153, 7, 7, "ThreadSafety/ClassInstanceVariable: Avoid class instance variables.", 842193521],
     [177, 25, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952]
+  ],
+  "tests/test_silent_stream_extra.rb:1093118220": [
+    [43, 5, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [44, 5, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [46, 5, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952],
+    [58, 5, 6, "Style/GlobalStdStream: Use `$stdout` instead of `STDOUT`.", 3356722952]
   ]
 }

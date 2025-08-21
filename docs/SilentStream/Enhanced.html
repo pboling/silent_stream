@@ -101,7 +101,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#silence_all-instance_method" title="#silence_all (instance method)">#<strong>silence_all</strong>(switch = true, temporary_level = Logger::ERROR, logger = nil, &amp;block)  &#x21d2; Object </a>
+      <a href="#silence_all-instance_method" title="#silence_all (instance method)">#<strong>silence_all</strong>(switch = true, temporary_level = Logger::ERROR, logger = nil) { ... } &#x21d2; Object </a>
     
 
     
@@ -115,7 +115,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>param switch is true or false By default it is true, when means we don’t want logging.</p>
+    <span class="summary_desc"><div class='inline'><p>Silences STDOUT and optionally a Logger while executing the block.</p>
 </div></span>
   
 </li>
@@ -133,7 +133,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="silence_all-instance_method">
   
-    #<strong>silence_all</strong>(switch = true, temporary_level = Logger::ERROR, logger = nil, &amp;block)  &#x21d2; <tt>Object</tt> 
+    #<strong>silence_all</strong>(switch = true, temporary_level = Logger::ERROR, logger = nil) { ... } &#x21d2; <tt>Object</tt> 
   
 
   
@@ -141,20 +141,109 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>param switch is true or false<br />
-By default it is true, when means we don’t want logging.<br />
-Switching it to false enables logging again.<br />
-By default, ERROR log level continues to be logged.<br />
-The return value is the return value of the block,<br />
-  so you can use it without changing code structure.</p>
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>This method is not thread-safe.</p>
+</div>
+  </div>
 
-<p>This method is not thread-safe.</p>
+<p>Silences STDOUT and optionally a Logger while executing the block.</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>switch</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>When false, do not silence. Defaults to true.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>temporary_level</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>Logger::ERROR</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Logger level to set temporarily (e.g., Logger::ERROR).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logger</span>
+      
+      
+        <span class='type'>(<tt>Logger</tt>, <tt>nil</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>Logger instance to adjust; defaults to Rails.logger when available.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>The work to perform while silenced.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Returns the block’s return value.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -204,7 +293,7 @@ The return value is the return value of the block,<br />
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 20 00:33:16 2025 by
+  Generated on Thu Aug 21 02:02:03 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.5).
 </div>

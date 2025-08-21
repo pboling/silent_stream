@@ -21,14 +21,14 @@ module SilentStream
   end
 
   module Enhanced
-    # param switch is true or false
-    # By default it is true, when means we don't want logging.
-    # Switching it to false enables logging again.
-    # By default, ERROR log level continues to be logged.
-    # The return value is the return value of the block,
-    #   so you can use it without changing code structure.
+    # Silences STDOUT and optionally a Logger while executing the block.
     #
-    # This method is not thread-safe.
+    # @param switch [Boolean] When false, do not silence. Defaults to true.
+    # @param temporary_level [Integer] Logger level to set temporarily (e.g., Logger::ERROR).
+    # @param logger [Logger, nil] Logger instance to adjust; defaults to Rails.logger when available.
+    # @yield The work to perform while silenced.
+    # @return [Object] Returns the block's return value.
+    # @note This method is not thread-safe.
     def silence_all(switch = true, temporary_level = Logger::ERROR, logger = nil, &block)
       if !switch || silent_stream_no_silence
         yield
@@ -73,6 +73,8 @@ module SilentStream
     end
 
     # This method is not thread-safe.
+    # @yield Work to perform while STDERR is silenced.
+    # @return [Object] The block's return value.
     def silence_stderr(&block)
       silence_stream(STDERR, &block)
     end
@@ -85,7 +87,10 @@ module SilentStream
     #
     #   puts 'But this will'
     #
-    # This method is not thread-safe.
+    # @param stream [IO] The stream to silence (e.g., STDOUT or STDERR).
+    # @yield Work to perform while the stream is silenced.
+    # @return [Object] The block's return value.
+    # @note This method is not thread-safe.
     def silence_stream(stream)
       old_stream = stream.dup
       begin
@@ -116,7 +121,10 @@ module SilentStream
     #   stream = capture(:stderr) { system('echo error 1>&2') }
     #   stream # => "error\n"
     #
-    # This method is not thread-safe.
+    # @param stream [Symbol, String] :stdout or :stderr (or equivalents), selecting which stream to capture.
+    # @yield Work that writes to the selected stream.
+    # @return [String] Captured contents of the stream written during the block.
+    # @note This method is not thread-safe.
     def capture(stream)
       stream = stream.to_s
       io_const = (stream == "stdout") ? STDOUT : STDERR # rubocop:disable Style/GlobalStdStream
@@ -152,12 +160,15 @@ module SilentStream
       rescue StandardError
         # ignore
       end
-      if defined?(origin_gvar)
-        if stream == "stdout"
-          $stdout = origin_gvar
-        else
-          $stderr = origin_gvar
-        end
+      # Unexpected, and not reasonably testable.
+      # :nocov:
+      raise "Expected the global variable to exist" unless defined?(origin_gvar)
+      # :nocov:
+
+      if stream == "stdout"
+        $stdout = origin_gvar
+      else
+        $stderr = origin_gvar
       end
       if defined?(captured_stream) && captured_stream
         begin
@@ -180,7 +191,9 @@ module SilentStream
     #
     #   quietly { system 'bundle install' }
     #
-    # This method is not thread-safe.
+    # @yield Work to perform while both streams are silenced.
+    # @return [Object] The block's return value.
+    # @note This method is not thread-safe.
     # rubocop:disable Style/GlobalStdStream
     def quietly(&block)
       silence_stream(STDOUT) do
