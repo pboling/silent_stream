@@ -23,8 +23,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - More YARD documentation
 - Published docs site: [silent-stream.galtzo.com](https://silent-stream.galtzo.com)
 - Complete test coverage for lines and branches at 100%
+- Testing of many scenarios via appraisal2 gem
 ### Fixed
 -  TypeError: can't convert Tempfile into StringIO
+### Removed
+- CI for JRuby 9.1, 9.2 (EOL)
+- CI for TruffleRuby 22.3 (EOL) & head because failing in ways that can't be fixed from this project
 
 ## [1.0.11] - 2025-05-16
 - TAG: [v1.0.11][1.0.11t]
