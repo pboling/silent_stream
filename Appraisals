@@ -42,12 +42,6 @@ appraise "current" do
   gem "stringio", ">= 3.0"
 end
 
-appraise "ruby-2-3" do
-end
-
-appraise "ruby-2-4" do
-end
-
 appraise "ruby-2-5" do
 end
 

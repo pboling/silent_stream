@@ -30,21 +30,31 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Ruby 2.3
-          - ruby: "ruby-2.3"
-            appraisal: "ruby-2-3"
-            exec_cmd: "rake test"
-            gemfile: "Appraisal.root"
-            rubygems: "3.3.27"
-            bundler: "2.3.27"
-
-          # Ruby 2.4
-          - ruby: "ruby-2.4"
-            appraisal: "ruby-2-4"
-            exec_cmd: "rake test"
-            gemfile: "Appraisal.root"
-            rubygems: "3.3.27"
-            bundler: "2.3.27"
+# Can't run in CI because something is loading a gem version of cgi that fails with Ruby 2.3 and 2.4.
+# There doesn't appear to be a simple workaround.
+#   /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/cgi-0.1.1/lib/cgi/core.rb:424:in `block in <module:QueryExtension>': undefined method `delete_prefix' for "CONTENT_LENGTH":String (NoMethodError)
+#	from /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/cgi-0.1.1/lib/cgi/core.rb:423:in `each'
+#	from /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/cgi-0.1.1/lib/cgi/core.rb:423:in `<module:QueryExtension>'
+#	from /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/cgi-0.1.1/lib/cgi/core.rb:421:in `<class:CGI>'
+#	from /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/cgi-0.1.1/lib/cgi/core.rb:6:in `<top (required)>'
+#	from /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/cgi-0.1.1/lib/cgi.rb:293:in `require'
+#	from /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/cgi-0.1.1/lib/cgi.rb:293:in `<top (required)>'
+#	from /opt/hostedtoolcache/Ruby/2.4.10/x64/lib/ruby/gems/2.4.0/gems/mocha-2.7.1/lib/mocha/parameter_matchers/equivalent_uri.rb:3:in `require'
+#          # Ruby 2.3
+#          - ruby: "ruby-2.3"
+#            appraisal: "ruby-2-3"
+#            exec_cmd: "rake test"
+#            gemfile: "Appraisal.root"
+#            rubygems: "3.3.27"
+#            bundler: "2.3.27"
+#
+#          # Ruby 2.4
+#          - ruby: "ruby-2.4"
+#            appraisal: "ruby-2-4"
+#            exec_cmd: "rake test"
+#            gemfile: "Appraisal.root"
+#            rubygems: "3.3.27"
+#            bundler: "2.3.27"
 
           # Ruby 2.5
           - ruby: "ruby-2.5"
