@@ -1,0 +1,44 @@
+module SilentStream
+  module Enhanced
+    # Silence STDOUT (and optionally a Logger) while executing the given block.
+    # When switch is false or NO_SILENCE env var is true, the block executes without silencing.
+    # Returns the block's return value.
+    def silence_all: (*untyped) { () -> untyped } -> untyped
+
+    private
+
+    def silent_stream_no_silence: () -> bool
+    def silent_stream_logger: () -> (::Logger | nil)
+    # Sets logger.level, returns previous level (Integer) or true when previous level was nil
+    def silent_stream_reset_logger_level: (::Logger?, Integer) -> (Integer | true | nil)
+  end
+
+  module Extracted
+    SILENT_STREAM_NULL_DEVICE: String | IO
+
+    # Silence STDERR for the duration of the given block.
+    def silence_stderr: () { () -> untyped } -> untyped
+
+    # Silences the given stream for the duration of the block.
+    # Returns the block's return value.
+    def silence_stream: (IO) { () -> untyped } -> untyped
+
+    # Capture the given stream (:stdout or :stderr) while running the block and
+    # return it as a String.
+    def capture: (Symbol | String) { () -> untyped } -> String
+
+    # Silence both STDOUT and STDERR while running the block.
+    # Returns the block's return value.
+    def quietly: () { () -> untyped } -> untyped
+
+    private
+
+    SILENT_STREAM_WINDOWS_REGEXP: Regexp
+    SILENT_STREAM_REGEXP_HAS_MATCH: bool
+    def windows_os_test: () -> (bool | Integer)
+  end
+end
+
+module SilentStream::Version
+end
+

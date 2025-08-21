@@ -11,7 +11,11 @@
 
 [![Version][👽versioni]][👽version] [![License: MIT][📄license-img]][📄license-ref] [![Downloads Rank][👽dl-ranki]][👽dl-rank] [![Open Source Helpers][👽oss-helpi]][👽oss-help] [![Coveralls Test Coverage][🔑coveralls-img]][🔑coveralls] [![CodeCov Test Coverage][🔑codecovi♻️]][🔑codecov] [![QLTY Test Coverage][🔑qlty-covi]][🔑qlty-cov] [![QLTY Maintainability][🔑qlty-mnti]][🔑qlty-mnt] [![CI Heads][🚎3-hd-wfi]][🚎3-hd-wf] [![CI Current][🚎11-c-wfi]][🚎11-c-wf] [![CI Truffle Ruby][🚎9-t-wfi]][🚎9-t-wf] [![CI JRuby][🚎10-j-wfi]][🚎10-j-wf] [![Deps Locked][🚎13-🔒️-wfi]][🚎13-🔒️-wf] [![Deps Unlocked][🚎14-🔓️-wfi]][🚎14-🔓️-wf] [![CI Supported][🚎6-s-wfi]][🚎6-s-wf] [![CI Legacy][🚎4-lg-wfi]][🚎4-lg-wf] [![CI Unsupported][🚎7-us-wfi]][🚎7-us-wf] [![CI Ancient][🚎1-an-wfi]][🚎1-an-wf] [![CI Test Coverage][🚎2-cov-wfi]][🚎2-cov-wf] [![CI Style][🚎5-st-wfi]][🚎5-st-wf]
 
+If ☝️ `ci_badges.map(&:color).detect { it != "green"}`  [let me know][🖼️galtzo-discord], as I may have missed the [discord notification][🖼️galtzo-discord].
+
 ---
+
+OTOH, if `ci_badges.map(&:color).all? { it == "green"}` 👇️ send money so I can do more of this. FLOSS is now my full-time job.
 
 [![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Buy me a coffee][🖇buyme-small-img]][🖇buyme] [![Donate on Polar][🖇polar-img]][🖇polar] [![Donate to my FLOSS or refugee efforts at ko-fi.com][🖇kofi-img]][🖇kofi] [![Donate to my FLOSS or refugee efforts using Patreon][🖇patreon-img]][🖇patreon]
 
@@ -21,7 +25,19 @@ SilentStream is an extraction of some parts of ActiveSupport's Kernel Reporting 
 
 Since July 2014 `silence_stream`, `silence_stderr`, `capture`, `silence`, and `quietly` have been deprecated because they are not thread safe.  See that discussion in the [PR where it all went down](https://github.com/rails/rails/pull/13392). I rely on them a lot in *single threaded* code, and so I plan to keep them alive.  With the exception of `silence`, which was just an alias of `capture`.
 
-This gem was taken out of Rails but it is *not* Rails dependent.  The extraction was total (**even the tests**!), and this is now a pure Ruby library, which can be used in any Ruby project without encumbrances.  *This gem has no runtime dependencies*.
+This gem was taken out of Rails but it is *not* Rails dependent.  The extraction was total (**even the tests**!), and this is now a pure Ruby library, which can be used in any Ruby project without encumbrances. I dramatically increased test coverage to 100% / 100% for lines / branches, and fixed issues with modern Rubies, *This gem has no runtime dependencies*.
+
+### NOTE
+
+One aspect of what this gem provides can be achieved with the Rails' built-in [`LoggerSilence`](https://github.com/rails/rails/blob/5-2-stable/activesupport/lib/active_support/logger_silence.rb), which is thread safe.  You will have to decide what is right for you!
+
+### Doing a Rails <= 4 to Rails >= 5 Upgrade?
+
+The reason for not keeping `silence` as it was in Rails 4, i.e. an alias of `capture`, is that the just mentioned `LoggerSilence` now uses this term, and it is shipping with Rails 5. I don't want to make this gem incompatible with Rails 5, so you will have to convert Rails <= 4 implementations that utilize `silence` over to `capture` when using this gem.  One further point of difference is this gem does not add the methods to `Kernel` or `Object`.  You can do that if you like via `include`.  By default this gem does not pollute anything, so you will need to `include SilentStream` in any class, or RSpec context, using these methods.
+
+| 🚚 _Amazing_ test matrix was brought to you by | 🔎 appraisal2 🔎                                                                    |
+|------------------------------------------------|-------------------------------------------------------------------------------------|
+| 👟 Check it out!                               | ✨ [github.com/appraisal-rb/appraisal2][💎appraisal2] ✨ |
 
 ## 💡 Info you can shake a stick at
 
@@ -41,7 +57,7 @@ This gem was taken out of Rails but it is *not* Rails dependent.  The extraction
 
 [gh-discussions]: https://github.com/galtzo-floss/silent_stream/discussions
 
-### Enterprise Support
+### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/timecop-rspec)](https://tidelift.com/subscription/pkg/rubygems-timecop-rspec?utm_source=rubygems-timecop-rspec&utm_medium=referral&utm_campaign=readme)
 
 <details>
   <summary>Need enterprise-level guarantees?</summary>
@@ -60,27 +76,19 @@ Alternatively:
 
 </details>
 
-| Tokens to Remember      | [![Gem name][⛳️name-img]][⛳️gem-name] [![Gem namespace][⛳️namespace-img]][⛳️gem-namespace]                                                                                                                                                                                                                                       |
-|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Works with JRuby        | [![JRuby 9.3 Compat][💎jruby-9.3i]][🚎10-j-wf] [![JRuby 9.4 Compat][💎jruby-9.4i]][🚎10-j-wf] [![JRuby 10.0 Compat][💎jruby-c-i]][🚎11-c-wf] [![JRuby HEAD Compat][💎jruby-headi]][🚎3-hd-wf]                                      |
-| Works with Truffle Ruby | [![Truffle Ruby 22.3 Compat][💎truby-22.3i]][🚎9-t-wf] [![Truffle Ruby 23.0 Compat][💎truby-23.0i]][🚎9-t-wf] [![Truffle Ruby 23.1 Compat][💎truby-23.1i]][🚎9-t-wf] [![Truffle Ruby 24.1 Compat][💎truby-c-i]][🚎11-c-wf]                                                                                                       |
-| Works with MRI Ruby 3   | [![Ruby 3.0 Compat][💎ruby-3.0i]][🚎4-lg-wf] [![Ruby 3.1 Compat][💎ruby-3.1i]][🚎6-s-wf] [![Ruby 3.2 Compat][💎ruby-3.2i]][🚎6-s-wf] [![Ruby 3.3 Compat][💎ruby-3.3i]][🚎6-s-wf] [![Ruby 3.4 Compat][💎ruby-c-i]][🚎11-c-wf] [![Ruby HEAD Compat][💎ruby-headi]][🚎3-hd-wf]                                                      |
-| Works with MRI Ruby 2   | [![Ruby 2.3 Compat][💎ruby-2.3i]][🚎1-an-wf] [![Ruby 2.4 Compat][💎ruby-2.4i]][🚎1-an-wf] [![Ruby 2.5 Compat][💎ruby-2.5i]][🚎1-an-wf] [![Ruby 2.6 Compat][💎ruby-2.6i]][🚎7-us-wf] [![Ruby 2.7 Compat][💎ruby-2.7i]][🚎7-us-wf] |
-| Source                  | [![Source on GitLab.com][📜src-gl-img]][📜src-gl] [![Source on CodeBerg.org][📜src-cb-img]][📜src-cb] [![Source on Github.com][📜src-gh-img]][📜src-gh] [![The best SHA: dQw4w9WgXcQ!][🧮kloc-img]][🧮kloc]                                                                                                                      |
-| Documentation           | [![Current release on RubyDoc.info][📜docs-cr-rd-img]][🚎yard-current] [![YARD on Galtzo.com][📜docs-head-rd-img]][🚎yard-head] [![Maintainer Blog][🚂maint-blog-img]][🚂maint-blog] [![Wiki][📜wiki-img]][📜wiki]                                                                                                               |
-| Compliance              | [![License: MIT][📄license-img]][📄license-ref] [![📄ilo-declaration-img]][📄ilo-declaration] [![Security Policy][🔐security-img]][🔐security] [![Contributor Covenant 2.1][🪇conduct-img]][🪇conduct] [![SemVer 2.0.0][📌semver-img]][📌semver]                                                                                 |
-| Style                   | [![Enforced Code Style Linter][💎rlts-img]][💎rlts] [![Keep-A-Changelog 1.0.0][📗keep-changelog-img]][📗keep-changelog] [![Gitmoji Commits][📌gitmoji-img]][📌gitmoji]                                                                                                                                                           |
-| Support                 | [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite] [![Get help from me on Upwork][👨🏼‍🏫expsup-upwork-img]][👨🏼‍🏫expsup-upwork] [![Get help from me on Codementor][👨🏼‍🏫expsup-codementor-img]][👨🏼‍🏫expsup-codementor]                                                                                    |
-| Maintainer 🎖️          | [![Follow Me on LinkedIn][💖🖇linkedin-img]][💖🖇linkedin] [![Follow Me on Ruby.Social][💖🐘ruby-mast-img]][💖🐘ruby-mast] [![Follow Me on Bluesky][💖🦋bluesky-img]][💖🦋bluesky] [![Contact Maintainer][🚂maint-contact-img]][🚂maint-contact] [![My technical writing][💖💁🏼‍♂️devto-img]][💖💁🏼‍♂️devto]                   |
-| `...` 💖                | [![Find Me on WellFound:][💖✌️wellfound-img]][💖✌️wellfound] [![Find Me on CrunchBase][💖💲crunchbase-img]][💖💲crunchbase] [![My LinkTree][💖🌳linktree-img]][💖🌳linktree] [![More About Me][💖💁🏼‍♂️aboutme-img]][💖💁🏼‍♂️aboutme] [🧊][💖🧊berg] [🐙][💖🐙hub]  [🛖][💖🛖hut] [🧪][💖🧪lab]                                |
-
-## NOTE
-
-One aspect of what this gem provides can be achieved with the Rails' built-in [`LoggerSilence`](https://github.com/rails/rails/blob/5-2-stable/activesupport/lib/active_support/logger_silence.rb), which is thread safe.  You will have to decide what is right for you!
-
-## Doing a Rails <= 4 to Rails >= 5 Upgrade?
-
-The reason for not keeping `silence` as it was in Rails 4, i.e. an alias of `capture`, is that the just mentioned `LoggerSilence` now uses this term, and it is shipping with Rails 5. I don't want to make this gem incompatible with Rails 5, so you will have to convert Rails <= 4 implementations that utilize `silence` over to `capture` when using this gem.  One further point of difference is this gem does not add the methods to `Kernel` or `Object`.  You can do that if you like via `include`.  By default this gem does not pollute anything, so you will need to `include SilentStream` in any class using these methods.
+| Tokens to Remember      | [![Gem name][⛳️name-img]][⛳️gem-name] [![Gem namespace][⛳️namespace-img]][⛳️gem-namespace]                                                                                                                                                                                                                     |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Works with JRuby        | ![JRuby 9.1 Compat][💎jruby-9.1i] ![JRuby 9.2 Compat][💎jruby-9.2i] <br/> [![JRuby 9.3 Compat][💎jruby-9.3i]][🚎10-j-wf] [![JRuby 9.4 Compat][💎jruby-9.4i]][🚎10-j-wf] [![JRuby 10.0 Compat][💎jruby-c-i]][🚎11-c-wf] [![JRuby HEAD Compat][💎jruby-headi]][🚎3-hd-wf]                                        |
+| Works with Truffle Ruby | ![Truffle Ruby 22.3 Compat][💎truby-22.3i] <br/> [![Truffle Ruby 23.0 Compat][💎truby-23.0i]][🚎9-t-wf] [![Truffle Ruby 23.1 Compat][💎truby-23.1i]][🚎9-t-wf] [![Truffle Ruby 24.1 Compat][💎truby-c-i]][🚎11-c-wf] ![Truffle Ruby HEAD Compat][💎truby-headi]                                                |
+| Works with MRI Ruby 3   | [![Ruby 3.0 Compat][💎ruby-3.0i]][🚎4-lg-wf] [![Ruby 3.1 Compat][💎ruby-3.1i]][🚎6-s-wf] [![Ruby 3.2 Compat][💎ruby-3.2i]][🚎6-s-wf] [![Ruby 3.3 Compat][💎ruby-3.3i]][🚎6-s-wf] [![Ruby 3.4 Compat][💎ruby-c-i]][🚎11-c-wf] [![Ruby HEAD Compat][💎ruby-headi]][🚎3-hd-wf]                                    |
+| Works with MRI Ruby 2   | ![Ruby 2.3 Compat][💎ruby-2.3i] ![Ruby 2.4 Compat][💎ruby-2.4i] <br/> [![Ruby 2.5 Compat][💎ruby-2.5i]][🚎1-an-wf] [![Ruby 2.6 Compat][💎ruby-2.6i]][🚎7-us-wf] [![Ruby 2.7 Compat][💎ruby-2.7i]][🚎7-us-wf]                                                                                                   |
+| Source                  | [![Source on GitLab.com][📜src-gl-img]][📜src-gl] [![Source on CodeBerg.org][📜src-cb-img]][📜src-cb] [![Source on Github.com][📜src-gh-img]][📜src-gh] [![The best SHA: dQw4w9WgXcQ!][🧮kloc-img]][🧮kloc]                                                                                                    |
+| Documentation           | [![Current release on RubyDoc.info][📜docs-cr-rd-img]][🚎yard-current] [![YARD on Galtzo.com][📜docs-head-rd-img]][🚎yard-head] [![Maintainer Blog][🚂maint-blog-img]][🚂maint-blog] [![Wiki][📜wiki-img]][📜wiki]                                                                                             |
+| Compliance              | [![License: MIT][📄license-img]][📄license-ref] [![📄ilo-declaration-img]][📄ilo-declaration] [![Security Policy][🔐security-img]][🔐security] [![Contributor Covenant 2.1][🪇conduct-img]][🪇conduct] [![SemVer 2.0.0][📌semver-img]][📌semver]                                                               |
+| Style                   | [![Enforced Code Style Linter][💎rlts-img]][💎rlts] [![Keep-A-Changelog 1.0.0][📗keep-changelog-img]][📗keep-changelog] [![Gitmoji Commits][📌gitmoji-img]][📌gitmoji] [![Compatibility appraised by: appraisal2][💎appraisal2-img]][💎appraisal2]                                                             |
+| Support                 | [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite] [![Get help from me on Upwork][👨🏼‍🏫expsup-upwork-img]][👨🏼‍🏫expsup-upwork] [![Get help from me on Codementor][👨🏼‍🏫expsup-codementor-img]][👨🏼‍🏫expsup-codementor]                                                                  |
+| Maintainer 🎖️          | [![Follow Me on LinkedIn][💖🖇linkedin-img]][💖🖇linkedin] [![Follow Me on Ruby.Social][💖🐘ruby-mast-img]][💖🐘ruby-mast] [![Follow Me on Bluesky][💖🦋bluesky-img]][💖🦋bluesky] [![Contact Maintainer][🚂maint-contact-img]][🚂maint-contact] [![My technical writing][💖💁🏼‍♂️devto-img]][💖💁🏼‍♂️devto] |
+| `...` 💖                | [![Find Me on WellFound:][💖✌️wellfound-img]][💖✌️wellfound] [![Find Me on CrunchBase][💖💲crunchbase-img]][💖💲crunchbase] [![My LinkTree][💖🌳linktree-img]][💖🌳linktree] [![More About Me][💖💁🏼‍♂️aboutme-img]][💖💁🏼‍♂️aboutme] [🧊][💖🧊berg] [🐙][💖🐙hub]  [🛖][💖🛖hut] [🧪][💖🧪lab]              |
 
 ## ✨ Installation
 
@@ -150,6 +158,8 @@ end
 ```
 
 In addition there is a `silence_all` method that is a useful wrapper that can be easily instrumented (turned off and on) with an ENV variable switch.
+
+- Environment toggle: Set `NO_SILENCE=true` to bypass silencing entirely (useful in CI or when debugging). Any truthy value other than the literal string `"true"` is ignored — use exactly `true`.
 
 Including the `SilentStream` namespace fully gives access to this enhanced method, as well as the extracted methods above, and also makes everything available at the class and instance levels.
 
@@ -264,7 +274,7 @@ See [SECURITY.md][🔐security].
 ## 🤝 Contributing
 
 If you need some ideas of where to help, you could work on adding more code coverage,
-or if it is already 💯 (see [below](#code-coverage)),
+or if it is already 💯 (see [below](#code-coverage)), check [reek](REEK),
 check [GitHub][🤝gh-issues], [GitLab][🤝gl-issues], or [CodeBerg][🤝cb-issues], issues,
 or use the gem and think about how it could be better.
 
@@ -275,6 +285,15 @@ See [CONTRIBUTING.md][🤝contributing] for more detailed instructions.
 ### 🚀 Release Instructions
 
 See [CONTRIBUTING.md][🤝contributing].
+
+### Types
+
+This library ships RBS type definitions under `sig/` that cover the public API. Editors and tools like Steep and TypeProf can use these for type checking and navigation.
+
+- Methods like `silence_stream`, `silence_stderr`, and `quietly` return the value returned by the given block.
+- `capture(:stdout | :stderr) { ... }` returns a String of the captured output.
+
+YARD is also provided for human-readable API docs. See the badges above for links to the generated documentation.
 
 ### Code Coverage
 
@@ -297,15 +316,18 @@ Made with [contributors-img][🖐contrib-rocks].
 
 Also see GitLab Contributors: [https://gitlab.com/galtzo-floss/silent_stream/-/graphs/main][🚎contributors-gl]
 
-## ⭐️ Star History
+<details>
+    <summary>⭐️ Star History</summary>
 
-<a href="https://star-history.com/#galtzo-floss/silent_stream&Date">
+<a href="https://star-history.com/#galtzo-floss/timecop-rspec&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/silent_stream&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/silent_stream&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/silent_stream&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/timecop-rspec&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=galtzo-floss/timecop-rspec&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=galtzo-floss/timecop-rspec&type=Date" />
  </picture>
 </a>
+
+</details>
 
 ## 📌 Versioning
 
@@ -315,25 +337,12 @@ Specifically, if a minor or patch version is released that breaks backward compa
 a new version should be immediately released that restores compatibility.
 Breaking changes to the public API will only be introduced with new major versions.
 
-### 📌 Is "Platform Support" part of the public API?
+> dropping support for a platform is both obviously and objectively a breaking change <br/>
+>—Jordan Harband ([@ljharb](https://github.com/ljharb), maintainer of SemVer) [in SemVer issue 716][📌semver-breaking]
 
-Yes.  But I'm obligated to include notes...
-
-SemVer should, but doesn't explicitly, say that dropping support for specific Platforms
-is a *breaking change* to an API.
-It is obvious to many, but not all, and since the spec is silent, the bike shedding is endless.
-
-> dropping support for a platform is both obviously and objectively a breaking change
-
-- Jordan Harband (@ljharb, maintainer of SemVer) [in SemVer issue 716][📌semver-breaking]
-
-To get a better understanding of how SemVer is intended to work over a project's lifetime,
-read this article from the creator of SemVer:
-
-- ["Major Version Numbers are Not Sacred"][📌major-versions-not-sacred]
-
-As a result of this policy, and the interpretive lens used by the maintainer,
-you can (and should) specify a dependency on these libraries using
+I understand that policy doesn't work universally ("exceptions to every rule!"),
+but it is the policy here.
+As such, in many cases it is good to specify a dependency on this library using
 the [Pessimistic Version Constraint][📌pvc] with two digits of precision.
 
 For example:
@@ -341,6 +350,20 @@ For example:
 ```ruby
 spec.add_dependency("silent_stream", "~> 1.0")
 ```
+
+<details>
+<summary>📌 Is "Platform Support" part of the public API? More details inside.</summary>
+
+SemVer should, but doesn't explicitly, say that dropping support for specific Platforms
+is a *breaking change* to an API.
+It is obvious to many, but not all, and since the spec is silent, the bike shedding is endless.
+
+To get a better understanding of how SemVer is intended to work over a project's lifetime,
+read this article from the creator of SemVer:
+
+- ["Major Version Numbers are Not Sacred"][📌major-versions-not-sacred]
+
+</details>
 
 See [CHANGELOG.md][📌changelog] for a list of releases.
 
@@ -364,43 +387,53 @@ See [LICENSE.txt][📄license] for the official [Copyright Notice][📄copyright
     </li>
 </ul>
 
-## 🤑 One more thing
+## 🤑 A request for help
 
-Having arrived at the bottom of the page, please endure a final supplication.
-The primary maintainer of this gem, Peter Boling, wants
-Ruby to be a great place for people to solve problems, big and small.
-Please consider supporting his efforts via the giant yellow link below,
-or one of the smaller ones, depending on button size preference.
+Maintainers have teeth, and need to pay their dentists.
+After getting laid off in an RIF in March, and filled with many dozens of rejections,
+I'm now spending ~80 hours a week building open source tools.
+I'm hoping to be able to pay for my kids' health insurance this month,
+so if you value the work I am doing, I need your support.
+Please consider sponsoring me.
 
-[![Buy me a latte][🖇buyme-img]][🖇buyme]
+ [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay-img] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal-img]
 
-[![Liberapay Goal Progress][⛳liberapay-img]][⛳liberapay] [![Sponsor Me on Github][🖇sponsor-img]][🖇sponsor] [![Donate on Polar][🖇polar-img]][🖇polar] [![Donate to my FLOSS or refugee efforts at ko-fi.com][🖇kofi-img]][🖇kofi] [![Donate to my FLOSS or refugee efforts using Patreon][🖇patreon-img]][🖇patreon]
+To say "thanks for maintaining such a great tool" 👇️ Join the Discord or ☝️ send money.
 
-P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
+To join the community or get help 👇️ Join the Discord.
 
 [![Live Chat on Discord][✉️discord-invite-img]][✉️discord-invite]
 
-[⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay
+Thanks for RTFM. ☺️
+
+[⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611
+[⛳liberapay-bottom-img]: https://img.shields.io/liberapay/goal/pboling.svg?style=for-the-badge&logo=liberapay&color=a51611
 [⛳liberapay]: https://liberapay.com/pboling/donate
 [🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
+[🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
 [🖇sponsor]: https://github.com/sponsors/pboling
-[🖇polar-img]: https://img.shields.io/badge/polar-donate-yellow.svg
+[🖇polar-img]: https://img.shields.io/badge/polar-donate-a51611.svg
 [🖇polar]: https://polar.sh/pboling
-[🖇kofi-img]: https://img.shields.io/badge/a_more_different_coffee-✓-yellow.svg
+[🖇kofi-img]: https://img.shields.io/badge/ko--fi-✓-a51611.svg
 [🖇kofi]: https://ko-fi.com/O5O86SNP4
-[🖇patreon-img]: https://img.shields.io/badge/patreon-donate-yellow.svg
+[🖇patreon-img]: https://img.shields.io/badge/patreon-donate-a51611.svg
 [🖇patreon]: https://patreon.com/galtzo
-[🖇buyme-small-img]: https://img.shields.io/badge/buy_me_a_coffee-✓-yellow.svg?style=flat
+[🖇buyme-small-img]: https://img.shields.io/badge/buy_me_a_coffee-✓-a51611.svg?style=flat
 [🖇buyme-img]: https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20latte&emoji=&slug=pboling&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff
 [🖇buyme]: https://www.buymeacoffee.com/pboling
+[🖇paypal-img]: https://img.shields.io/badge/donate-paypal-a51611.svg?style=flat&logo=paypal
+[🖇paypal-bottom-img]: https://img.shields.io/badge/donate-paypal-a51611.svg?style=for-the-badge&logo=paypal&color=0A0A0A
+[🖇paypal]: https://www.paypal.com/paypalme/peterboling
+[🖇floss-funding.dev]: https://floss-funding.dev
+[🖇floss-funding-gem]: https://github.com/galtzo-floss/floss_funding
 [✉️discord-invite]: https://discord.gg/3qme4XHNKN
 [✉️discord-invite-img]: https://img.shields.io/discord/1373797679469170758?style=for-the-badge
 
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
 [⛳️gem-namespace]: https://github.com/galtzo-floss/silent_stream
-[⛳️namespace-img]: https://img.shields.io/badge/namespace-SilentStream-brightgreen.svg?style=flat&logo=ruby&logoColor=white
+[⛳️namespace-img]: https://img.shields.io/badge/namespace-SilentStream-3C2D2D.svg?style=square&logo=ruby&logoColor=white
 [⛳️gem-name]: https://rubygems.org/gems/silent_stream
-[⛳️name-img]: https://img.shields.io/badge/name-silent__stream-brightgreen.svg?style=flat&logo=rubygems&logoColor=red
+[⛳️name-img]: https://img.shields.io/badge/name-silent__stream-3C2D2D.svg?style=square&logo=rubygems&logoColor=red
 [🚂maint-blog]: http://www.railsbling.com/tags/silent_stream
 [🚂maint-blog-img]: https://img.shields.io/badge/blog-railsbling-0093D0.svg?style=for-the-badge&logo=rubyonrails&logoColor=orange
 [🚂maint-contact]: http://www.railsbling.com/contact
@@ -486,8 +519,8 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [🚎13-🔒️-wfi]: https://github.com/galtzo-floss/silent_stream/actions/workflows/locked_deps.yml/badge.svg
 [🚎14-🔓️-wf]: https://github.com/galtzo-floss/silent_stream/actions/workflows/unlocked_deps.yml
 [🚎14-🔓️-wfi]: https://github.com/galtzo-floss/silent_stream/actions/workflows/unlocked_deps.yml/badge.svg
-[💎ruby-2.3i]: https://img.shields.io/badge/Ruby-2.3-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
-[💎ruby-2.4i]: https://img.shields.io/badge/Ruby-2.4-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
+[💎ruby-2.3i]: https://img.shields.io/badge/Ruby-2.3_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=white
+[💎ruby-2.4i]: https://img.shields.io/badge/Ruby-2.4_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.5i]: https://img.shields.io/badge/Ruby-2.5-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.6i]: https://img.shields.io/badge/Ruby-2.6-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-2.7i]: https://img.shields.io/badge/Ruby-2.7-DF00CA?style=for-the-badge&logo=ruby&logoColor=white
@@ -497,11 +530,13 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [💎ruby-3.3i]: https://img.shields.io/badge/Ruby-3.3-CC342D?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-c-i]: https://img.shields.io/badge/Ruby-current-CC342D?style=for-the-badge&logo=ruby&logoColor=green
 [💎ruby-headi]: https://img.shields.io/badge/Ruby-HEAD-CC342D?style=for-the-badge&logo=ruby&logoColor=blue
-[💎truby-22.3i]: https://img.shields.io/badge/Truffle_Ruby-22.3-34BCB1?style=for-the-badge&logo=ruby&logoColor=pink
+[💎truby-22.3i]: https://img.shields.io/badge/Truffle_Ruby-22.3_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=pink
 [💎truby-23.0i]: https://img.shields.io/badge/Truffle_Ruby-23.0-34BCB1?style=for-the-badge&logo=ruby&logoColor=pink
 [💎truby-23.1i]: https://img.shields.io/badge/Truffle_Ruby-23.1-34BCB1?style=for-the-badge&logo=ruby&logoColor=pink
 [💎truby-c-i]: https://img.shields.io/badge/Truffle_Ruby-current-34BCB1?style=for-the-badge&logo=ruby&logoColor=green
-[💎truby-headi]: https://img.shields.io/badge/Truffle_Ruby-HEAD-34BCB1?style=for-the-badge&logo=ruby&logoColor=blue
+[💎truby-headi]: https://img.shields.io/badge/Truffle_Ruby-HEAD_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=blue
+[💎jruby-9.1i]: https://img.shields.io/badge/JRuby-9.1_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=red
+[💎jruby-9.2i]: https://img.shields.io/badge/JRuby-9.2_(%F0%9F%9A%ABCI)-AABBCC?style=for-the-badge&logo=ruby&logoColor=red
 [💎jruby-9.3i]: https://img.shields.io/badge/JRuby-9.3-FBE742?style=for-the-badge&logo=ruby&logoColor=red
 [💎jruby-9.4i]: https://img.shields.io/badge/JRuby-9.4-FBE742?style=for-the-badge&logo=ruby&logoColor=red
 [💎jruby-c-i]: https://img.shields.io/badge/JRuby-current-FBE742?style=for-the-badge&logo=ruby&logoColor=green
@@ -532,7 +567,7 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [📌gitmoji]:https://gitmoji.dev
 [📌gitmoji-img]:https://img.shields.io/badge/gitmoji_commits-%20😜%20😍-34495e.svg?style=flat-square
 [🧮kloc]: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-[🧮kloc-img]: https://img.shields.io/badge/KLOC-0.137-FFDD67.svg?style=for-the-badge&logo=YouTube&logoColor=blue
+[🧮kloc-img]: https://img.shields.io/badge/KLOC-0.80-FFDD67.svg?style=for-the-badge&logo=YouTube&logoColor=blue
 [🔐security]: SECURITY.md
 [🔐security-img]: https://img.shields.io/badge/security-policy-259D6C.svg?style=flat
 [📄copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year
@@ -547,4 +582,6 @@ P.S. If you need help️ or want to say thanks, 👇 Join the Discord.
 [💎SHA_checksums]: https://gitlab.com/galtzo-floss/silent_stream/-/tree/main/checksums
 [💎rlts]: https://github.com/rubocop-lts/rubocop-lts
 [💎rlts-img]: https://img.shields.io/badge/code_style_%26_linting-rubocop--lts-34495e.svg?plastic&logo=ruby&logoColor=white
+[💎appraisal2]: https://github.com/appraisal-rb/appraisal2
+[💎appraisal2-img]: https://img.shields.io/badge/appraised_by-appraisal2-34495e.svg?plastic&logo=ruby&logoColor=white
 [💎d-in-dvcs]: https://railsbling.com/posts/dvcs/put_the_d_in_dvcs/

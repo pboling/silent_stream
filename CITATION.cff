@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: SilentStream
+title: silent_stream
 message: >-
   If you use this work and you want to cite it,
   then you can use the metadata from this file.
@@ -13,8 +13,8 @@ authors:
 identifiers:
   - type: url
     value: 'https://github.com/galtzo-floss/silent_stream'
-    description: SilentStream
+    description: silent_stream
 repository-code: 'https://github.com/galtzo-floss/silent_stream'
 abstract: >-
-  SilentStream
+  silent_stream
 license: See license file

@@ -134,7 +134,7 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#capture-instance_method" title="#capture (instance method)">#<strong>capture</strong>(stream)  &#x21d2; Object </a>
+      <a href="#capture-instance_method" title="#capture (instance method)">#<strong>capture</strong>(stream) { ... } &#x21d2; String </a>
     
 
     
@@ -157,7 +157,7 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#quietly-instance_method" title="#quietly (instance method)">#<strong>quietly</strong>(&amp;block)  &#x21d2; Object </a>
+      <a href="#quietly-instance_method" title="#quietly (instance method)">#<strong>quietly</strong> { ... } &#x21d2; Object </a>
     
 
     
@@ -180,7 +180,7 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#silence_stderr-instance_method" title="#silence_stderr (instance method)">#<strong>silence_stderr</strong>(&amp;block)  &#x21d2; Object </a>
+      <a href="#silence_stderr-instance_method" title="#silence_stderr (instance method)">#<strong>silence_stderr</strong> { ... } &#x21d2; Object </a>
     
 
     
@@ -203,7 +203,7 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#silence_stream-instance_method" title="#silence_stream (instance method)">#<strong>silence_stream</strong>(stream)  &#x21d2; Object </a>
+      <a href="#silence_stream-instance_method" title="#silence_stream (instance method)">#<strong>silence_stream</strong>(stream) { ... } &#x21d2; Object </a>
     
 
     
@@ -235,7 +235,7 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
       <div class="method_details first">
   <h3 class="signature first" id="capture-instance_method">
   
-    #<strong>capture</strong>(stream)  &#x21d2; <tt>Object</tt> 
+    #<strong>capture</strong>(stream) { ... } &#x21d2; <tt>String</tt> 
   
 
   
@@ -243,7 +243,14 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Captures the given stream and returns it:</p>
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>This method is not thread-safe.</p>
+</div>
+  </div>
+
+<p>Captures the given stream and returns it:</p>
 
 <p>stream = capture(:stdout) { puts ‘notice’ }<br />
   stream # =&gt; “notice\n”</p>
@@ -259,13 +266,64 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
 <p>stream = capture(:stderr) { system(‘echo error 1&gt;&amp;2’) }<br />
   stream # =&gt; “error\n”</p>
 
-<p>This method is not thread-safe.</p>
-
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>stream</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>:stdout or :stderr (or equivalents), selecting which stream to capture.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>Work that writes to the selected stream.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Captured contents of the stream written during the block.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -273,14 +331,6 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
       <pre class="lines">
 
 
-120
-121
-122
-123
-124
-125
-126
-127
 128
 129
 130
@@ -327,10 +377,21 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
 171
 172
 173
-174</pre>
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_capture'>capture</span><span class='lparen'>(</span><span class='id identifier rubyid_stream'>stream</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stream'>stream</span> <span class='op'>=</span> <span class='id identifier rubyid_stream'>stream</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -367,12 +428,15 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
   <span class='kw'>rescue</span> <span class='const'>StandardError</span>
     <span class='comment'># ignore
 </span>  <span class='kw'>end</span>
-  <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_origin_gvar'>origin_gvar</span><span class='rparen'>)</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_stream'>stream</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdout</span><span class='tstring_end'>&quot;</span></span>
-      <span class='gvar'>$stdout</span> <span class='op'>=</span> <span class='id identifier rubyid_origin_gvar'>origin_gvar</span>
-    <span class='kw'>else</span>
-      <span class='gvar'>$stderr</span> <span class='op'>=</span> <span class='id identifier rubyid_origin_gvar'>origin_gvar</span>
-    <span class='kw'>end</span>
+  <span class='comment'># Unexpected, and not reasonably testable.
+</span>  <span class='comment'># :nocov:
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Expected the global variable to exist</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_origin_gvar'>origin_gvar</span><span class='rparen'>)</span>
+  <span class='comment'># :nocov:
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_stream'>stream</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stdout</span><span class='tstring_end'>&quot;</span></span>
+    <span class='gvar'>$stdout</span> <span class='op'>=</span> <span class='id identifier rubyid_origin_gvar'>origin_gvar</span>
+  <span class='kw'>else</span>
+    <span class='gvar'>$stderr</span> <span class='op'>=</span> <span class='id identifier rubyid_origin_gvar'>origin_gvar</span>
   <span class='kw'>end</span>
   <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_captured_stream'>captured_stream</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_captured_stream'>captured_stream</span>
     <span class='kw'>begin</span>
@@ -395,7 +459,7 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
       <div class="method_details ">
   <h3 class="signature " id="quietly-instance_method">
   
-    #<strong>quietly</strong>(&amp;block)  &#x21d2; <tt>Object</tt> 
+    #<strong>quietly</strong> { ... } &#x21d2; <tt>Object</tt> 
   
 
   
@@ -403,18 +467,58 @@ https://github.com/rails/rails/blob/4-2-stable/activesupport/lib/active_support/
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Silences both STDOUT and STDERR, even for subprocesses.</p>
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>This method is not thread-safe.</p>
+</div>
+  </div>
+
+<p>Silences both STDOUT and STDERR, even for subprocesses.</p>
 
 <p>quietly { system ‘bundle install’ }</p>
 
-<p>This method is not thread-safe.<br />
-rubocop:disable Style/GlobalStdStream</p>
+<p>rubocop:disable Style/GlobalStdStream</p>
 
 
   </div>
 </div>
 <div class="tags">
   
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>Work to perform while both streams are silenced.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The block’s return value.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -422,14 +526,14 @@ rubocop:disable Style/GlobalStdStream</p>
       <pre class="lines">
 
 
-185
-186
-187
-188
-189</pre>
+198
+199
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 198</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_quietly'>quietly</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_silence_stream'>silence_stream</span><span class='lparen'>(</span><span class='const'>STDOUT</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -444,7 +548,7 @@ rubocop:disable Style/GlobalStdStream</p>
       <div class="method_details ">
   <h3 class="signature " id="silence_stderr-instance_method">
   
-    #<strong>silence_stderr</strong>(&amp;block)  &#x21d2; <tt>Object</tt> 
+    #<strong>silence_stderr</strong> { ... } &#x21d2; <tt>Object</tt> 
   
 
   
@@ -459,6 +563,40 @@ rubocop:disable Style/GlobalStdStream</p>
 </div>
 <div class="tags">
   
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>Work to perform while STDERR is silenced.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The block’s return value.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -466,12 +604,12 @@ rubocop:disable Style/GlobalStdStream</p>
       <pre class="lines">
 
 
-76
-77
-78</pre>
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_silence_stderr'>silence_stderr</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_silence_stream'>silence_stream</span><span class='lparen'>(</span><span class='const'>STDERR</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -484,7 +622,7 @@ rubocop:disable Style/GlobalStdStream</p>
       <div class="method_details ">
   <h3 class="signature " id="silence_stream-instance_method">
   
-    #<strong>silence_stream</strong>(stream)  &#x21d2; <tt>Object</tt> 
+    #<strong>silence_stream</strong>(stream) { ... } &#x21d2; <tt>Object</tt> 
   
 
   
@@ -492,7 +630,14 @@ rubocop:disable Style/GlobalStdStream</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Silences any stream for the duration of the block.</p>
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>This method is not thread-safe.</p>
+</div>
+  </div>
+
+<p>Silences any stream for the duration of the block.</p>
 
 <p>silence_stream(STDOUT) do<br />
     puts ‘This will never be seen’<br />
@@ -500,13 +645,64 @@ rubocop:disable Style/GlobalStdStream</p>
 
 <p>puts ‘But this will’</p>
 
-<p>This method is not thread-safe.</p>
-
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>stream</span>
+      
+      
+        <span class='type'>(<tt>IO</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The stream to silence (e.g., STDOUT or STDERR).</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>Work to perform while the stream is silenced.</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The block’s return value.</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -514,11 +710,6 @@ rubocop:disable Style/GlobalStdStream</p>
       <pre class="lines">
 
 
-89
-90
-91
-92
-93
 94
 95
 96
@@ -526,10 +717,15 @@ rubocop:disable Style/GlobalStdStream</p>
 98
 99
 100
-101</pre>
+101
+102
+103
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/silent_stream.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_silence_stream'>silence_stream</span><span class='lparen'>(</span><span class='id identifier rubyid_stream'>stream</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_old_stream'>old_stream</span> <span class='op'>=</span> <span class='id identifier rubyid_stream'>stream</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
@@ -554,7 +750,7 @@ rubocop:disable Style/GlobalStdStream</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Aug 20 23:50:16 2025 by
+  Generated on Thu Aug 21 02:02:03 2025 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.37 (ruby-3.4.5).
 </div>
